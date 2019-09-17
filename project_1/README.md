@@ -1,1 +1,2 @@
-## Chuwen Liu
+## Project 1 Chuwen Liu
+    The dataset shows some variables that provide support for the poor people by Urban Ministries of Durham. I am kind of interested in the age composition of the clients, and the trend of demand for food,clothing items and school kits as the time change. I am also interested whether there's any association between different variables, such as diapers and school kits. At last, I would like to infer if the support by UMD have really helped the client, keeping them out of poverty.
