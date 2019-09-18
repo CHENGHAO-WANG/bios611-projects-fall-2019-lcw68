@@ -1,3 +1,5 @@
 ## Project 1 Chuwen Liu
-The dataset shows some variables that provide support for the poor people by Urban Ministries of Durham. I think the variable "date", "client file number" and "food pounds" will be useful in my project.
-I am kind of interested in the age composition of the clients, and the trend of demand for food, clothing items and school kits as the time change. I am also interested whether there's any association between different variables, such as diapers and school kits. At last, I would like to infer if the support by UMD have really helped the client, keeping them out of poverty. I will use some time series analysis and draw some plot
+### Background
+The dataset shows some variables that represent support for the people in need by Urban Ministries of Durham. The Ministries record data around 20 years so that we could explore some interesting phenomenon.I think the variable "date", "client file number" and "food pounds" will be useful in my project.
+### Research Problem and method
+I am kind of interested in the age composition of the clients, and the trend of demand for food, clothing items and school kits as the time change. Will them be related to the seasons? I am also interested whether there's any association between different variables, such as diapers and school kits. That will also imply the change of birth rate. At last, I would like to infer if the support by UMD have really helped the client, keeping them out of poverty. I will use some time series analysis and draw some plot using ggplot2.
