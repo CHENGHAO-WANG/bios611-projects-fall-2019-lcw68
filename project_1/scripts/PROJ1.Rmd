@@ -1,0 +1,121 @@
+---
+title: "Project1 Draft"
+author: "Chuwen Liu"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(ggplot2)
+```
+
+### Introduction
+
+The dataset provided by Urban Ministries of Durham shows the living material support for people in need, and the time span is around 90 years. There are many variables such as food pounds, clothing items and diapers. We would like to check the trend and predict the change of future support. 
+
+At first I am going to do some cleaning work, such as arrange the data row based on the Date, and remove some data rows including NA. 
+```{r umd}
+UMD <- read_tsv("https://raw.githubusercontent.com/biodatascience/datasci611/gh-pages/data/project1_2019/UMD_Services_Provided_20190719.tsv")
+UMD1 = UMD
+#convert the data type
+UMD1$Date <- as.Date(UMD1$Date, "%m/%d/%Y")
+
+#clear out the extraneous variable, clear the unmeaningful date and add "year" variable
+UMD1 <- UMD1%>%filter(UMD1$Date <= Sys.Date())%>%select(-Referrals,-`Field1`,-`Field2`,-`Field3`)%>%arrange(Date,`Client File Number`,`Client File Merge`)%>% mutate(year = as.numeric(format(Date,"%Y")))
+```
+
+### Food supply
+
+I would like to explore the trend of food supply, so at first we consider "Food Provided For" and "Food Pounds" two variables. 
+```{r umdfood}
+UMD_food = UMD1 %>% select(Date,year,`Client File Number`,`Client File Merge`,`Food Provided for`,`Food Pounds`)%>%filter(!is.na(`Food Provided for`) & !is.na(`Food Pounds`))
+View(UMD_food)
+table(UMD_food$year)
+# Based on the frequency, we consider the time period 2005-2019; and there's some outliers in Food Pounds, so 
+Food_pound <- UMD_food%>%filter(Date <= Sys.Date() & Date >= "2005-01-01",`Food Pounds` < 200)%>%group_by(year)%>%summarise(foodof = sum(`Food Pounds`),people = sum(`Food Provided for`),food.ave = sum(`Food Pounds`)/sum(`Food Provided for`)) 
+ggplot(Food_pound,aes(x= year,y=foodof))+geom_line(size=1.5,col="red")+labs(x = "year",y = "food supply",title = "Food supply")+theme_bw()
+ggplot(Food_pound,aes(x = year, y = people))+geom_line(size=1.5,col="red")+labs(x = "year",y = "Client Amount",title = "Food supply")+theme_bw()+theme_grey()
+ggplot(Food_pound,aes(x = year, y = food.ave))+geom_line(size=1.5,col="red")+labs(x = "year",y = "Average Food",title = "Food supply")+theme_bw()+theme_grey()
+
+#For food supply, it begins to increase from around 2005. Then we want to know if it is affected by seasons.
+
+Food_pound1 <- UMD_food%>%filter(Date <= Sys.Date() & Date >= "2000-01-01",`Food Pounds` < 200)%>%mutate(month = as.integer(format(Date,"%m")))%>%
+  group_by(month)%>%summarise(foodof = sum(`Food Pounds`),people = sum(`Food Provided for`),food.ave = sum(`Food Pounds`)/sum(`Food Provided for`)) 
+ggplot(Food_pound1,aes(x = month, y = foodof))+geom_line(size=1.5,col="red")+
+  labs(x = "month",y = "Average Food",title = "Food supply")+theme_bw()+theme_grey()
+
+#Actually it is not affected by the season.
+
+```
+I will also try to connect the food demand and clothing item in my final project.
+
+### Clothing items, school kits and Diapers: Will they have some correlation?
+
+Next we are going to figure out the trend of clothing item and diapers, we want to know if there's some link between the demand and seasons.
+```{r umdcloth}
+UMD_cloth <- UMD1 %>% select(Date,`Client File Number`,`Client File Merge`,`Clothing Items`,Diapers)%>% drop_na(`Clothing Items`,Diapers)
+
+tmp<-UMD_cloth %>% mutate(month = as.numeric(format(Date,"%m"))) %>%
+  filter(Diapers < 500)%>% group_by(month) %>% 
+  summarise(count =n(),cloth.ave = mean(`Clothing Items`),diaper.ave = mean(Diapers)) 
+
+ggplot(tmp)+geom_line(aes(x=month,y=cloth.ave,col="cloth.ave"),size = 1.2)+
+  geom_line(aes(x=month,y=diaper.ave,col="diaper.ave"),size = 1.2)+scale_color_manual(values = c("red", "blue"))+
+  labs(x="month",y="item",title = "Demand change by month")+theme_bw() 
+
+#We could find that for clothing item, it is obvious that in summer time(May to July) the demand for clothing item is decreasing, and we found that in January there is a peak for diapers need. After more observation, we found that in January, 2018 there's an unnormal amount of need for diapers, and we regard it as an outlier. So we add a condition 'Diapers < 500'.
+
+
+```
+
+Then we could see that there're two very similar curves. In summer time the demand for both items decrease. Then we calculate the specific Pearson correlation 0.28818.
+
+I want to explore if there's any association between diapers and school kits, since it all indicates the growth of children.
+```{r kids}
+UMD_kids <- UMD1 %>% select(Date,year,`Client File Number`,`Client File Merge`,`School Kits`,Diapers)%>% drop_na(`School Kits`,Diapers)
+
+UMD_kids%>%filter(year >= 2005,Diapers < 1000)%>%group_by(Date)%>%summarise(diap.ave = mean(Diapers),school.ave = mean(`School Kits`))%>% 
+  ggplot()+geom_line(aes(x=Date,y=diap.ave,col="diap.ave"),size=1.2)+geom_line(aes(x=Date,y=school.ave,col="school.ave"),size=1.2)+
+  labs(x="Date",y="item",title="Comparison betweenthe demand of school kits and diapers")+theme_bw()
+# There's a correlation more than 0.5, so it is a bit correlated.
+```
+We know from the plot that for the two items, change is similar and the Pearson correlation we calculate is not very small. Is it a causal problem? I think they should be link with a time difference, but it seems not.
+
+### People who receive the support from UMD: Increase Or Decrease?
+Another question is that we want to see what kind of influence does the UMD bring to the people who are in need. We firstly find the client which receives the help at most:
+```{r help}
+sort(table(UMD1$`Client File Number`),decreasing = TRUE)[1]
+length(table(UMD1$`Client File Number`))
+# We have 15351 fmailies or individuals who have received the help from UMD, and client 3502 seeked for the most help--- 249 times.
+
+summary(UMD1%>%filter(`Client File Number`==3502))
+#After reviewing the summary, we could see that this client mainly obtain food pounds and clothing items
+
+UMD1%>%filter(`Client File Number`==3502)%>%select(Date,`Food Pounds`,`Clothing Items`)%>% drop_na(`Food Pounds`,`Clothing Items`)%>% ggplot(aes(x= Date,y = `Clothing Items`))+geom_line()+labs(x="Date",y="clothing items")+ggtitle("Clothing item change for Client 3502")+theme_grey()
+#I got a atable demand for clothing items.
+
+# We want to see then if there's more and more people coming for help or not.
+UMD1%>%select(Date,year,`Client File Number`)%>%filter(year>1990)%>%group_by(year)%>%summarise(amount = n())%>%ggplot(aes(x=year,y=amount))+geom_histogram(stat = "identity",breaks=5)+labs(x="year",y="person-time receiving help per year",title="Histogram of person-time per year helped by UMD")+theme_grey()
+```
+
+We want to know whether or not the amount of new clients increase.(From the new century)
+```{r peopleincrease}
+UMD_client = UMD1%>%select(Date,year,`Client File Number`)%>%filter(year>=2000)%>%group_by(year)%>%summarise(count = n())
+UMD_client$uni = person =0
+#uni represents new client evry year, "person" represents total amount of clients from year i.
+tp1 = UMD1%>%select(Date,year,`Client File Number`)%>%filter(year <= 2000)
+person[1] = length(unique(tp1$`Client File Number`))
+tp0 = UMD1%>%select(Date,year,`Client File Number`)%>%filter(year < 2000)
+UMD_client$uni[1] = person[1] - length(unique(tp0$`Client File Number`))
+for(i in 2:19)
+{
+  tp1 = UMD1%>%select(Date,year,`Client File Number`)%>%filter(year <= i+2000)
+  person[i]= length(unique(tp1$`Client File Number`))
+  UMD_client$uni[i] = person[i] - person[i - 1]
+}
+ggplot(UMD_client,aes(x=year,y=uni))+geom_histogram(stat = "identity")+labs(x="year",y="new client evry year",title = "Amount of New Client")+theme_bw()
+
+# we could see that there's a stable increasing for new clients, so we could conclude that UMD still have lots of work to do
+```
+
+I am going to explore some other variables in the final project.
