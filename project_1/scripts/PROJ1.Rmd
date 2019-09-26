@@ -7,6 +7,7 @@ output: html_document
 ```{r setup, include=FALSE}
 library(tidyverse)
 library(ggplot2)
+library(wordcloud2)
 ```
 
 ### Introduction
@@ -33,9 +34,12 @@ View(UMD_food)
 table(UMD_food$year)
 # Based on the frequency, we consider the time period 2005-2019; and there's some outliers in Food Pounds, so 
 Food_pound <- UMD_food%>%filter(Date <= Sys.Date() & Date >= "2005-01-01",`Food Pounds` < 200)%>%group_by(year)%>%summarise(foodof = sum(`Food Pounds`),people = sum(`Food Provided for`),food.ave = sum(`Food Pounds`)/sum(`Food Provided for`)) 
-ggplot(Food_pound,aes(x= year,y=foodof))+geom_line(size=1.5,col="red")+labs(x = "year",y = "food supply",title = "Food supply")+theme_bw()
-ggplot(Food_pound,aes(x = year, y = people))+geom_line(size=1.5,col="red")+labs(x = "year",y = "Client Amount",title = "Food supply")+theme_bw()+theme_grey()
-ggplot(Food_pound,aes(x = year, y = food.ave))+geom_line(size=1.5,col="red")+labs(x = "year",y = "Average Food",title = "Food supply")+theme_bw()+theme_grey()
+ggplot(Food_pound,aes(x= year,y=foodof))+geom_line(size=1.5,col="red")+
+  labs(x = "year",y = "food supply",title = "Food supply")+theme_bw()
+ggplot(Food_pound,aes(x = year, y = people))+geom_line(size=1.5,col="red")+
+  labs(x = "year",y = "Client Amount",title = "Food supply")+theme_bw()+theme_grey()
+ggplot(Food_pound,aes(x = year, y = food.ave))+geom_line(size=1.5,col="red")+
+  labs(x = "year",y = "Average Food",title = "Food supply")+theme_bw()+theme_grey()
 
 #For food supply, it begins to increase from around 2005. Then we want to know if it is affected by seasons.
 
@@ -44,7 +48,7 @@ Food_pound1 <- UMD_food%>%filter(Date <= Sys.Date() & Date >= "2000-01-01",`Food
 ggplot(Food_pound1,aes(x = month, y = foodof))+geom_line(size=1.5,col="red")+
   labs(x = "month",y = "Average Food",title = "Food supply")+theme_bw()+theme_grey()
 
-#Actually it is not affected by the season.
+#Actually it is not affected a lot by the season.
 
 ```
 I will also try to connect the food demand and clothing item in my final project.
@@ -115,7 +119,26 @@ for(i in 2:19)
 }
 ggplot(UMD_client,aes(x=year,y=uni))+geom_histogram(stat = "identity")+labs(x="year",y="new client evry year",title = "Amount of New Client")+theme_bw()
 
-# we could see that there's a stable increasing for new clients, so we could conclude that UMD still have lots of work to do
+# we could see that there's a stable increasing for new clients, so we could conclude that UMD still have lots of work to do.
 ```
 
-I am going to explore some other variables in the final project.
+### What is the most frequent word used in Note of Service?
+Next we will consider the variable "Note of Service", since it's a string variable, I want to know what is the most frequently used words. 
+```{r notice}
+UMD_notice <- UMD1%>%select(Date,year,`Client File Number`,`Notes of Service`)%>% drop_na(`Notes of Service`)
+txt = UMD_notice$`Notes of Service`
+# I need to deal with the words and separate the sentences
+txt = txt[txt!=""]
+txtList = lapply(txt, strsplit," ")
+txtChar = unlist(txtList)
+txtChar = gsub("\\.|,|\\!|:|;|\\?","",txtChar) #clean symbol(.,!:;?)
+txtChar = tolower(txtChar[txtChar!=""])
+datnoti = as.data.frame(table(txtChar))
+colnames(datnoti) = c("Word","freq")
+ordFreq = datnoti[order(datnoti$freq,decreasing=T),]
+#filter the word number "1,2,3,4...."
+ordFreq = ordFreq%>%filter(Word != "1" & Word != "2" & Word != "3" & Word != "4")
+wordcloud2(ordFreq,size = 0.9, shape = "diamond")
+```
+
+And we could see from the plot that clothes is the most frequent word, of which food and hygiene are on the heel. 
