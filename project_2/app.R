@@ -1,16 +1,8 @@
-#
-# This is a Shiny web application. You can run the application by clicking
-# the 'Run App' button above.
-#
-# Find out more about building applications with Shiny here:
-#
-#    http://shiny.rstudio.com/
-#
 
 library(shiny)
 library(shinydashboard)
 library(shinythemes)
-setwd("~/GitHub/bios611-projects-fall-2019-lcw68/project_2")
+#setwd("~/GitHub/bios611-projects-fall-2019-lcw68/project_2")
 source("helper_functions.R")
 
 
@@ -112,16 +104,19 @@ ui <- fluidPage(
 # Define server logic required to draw a histogram
 server <- function(input, output) {
    
+  #Output the changing trend plot(some include both boxplot and scatterplot)
    output$TrendPlot <- renderPlot({
       
       fselect(input$var,input$time,input$PeriodRange)
    })
-   
+  
+   #Output the frequency barplot
    output$FreqPlot <- renderPlot({
      n1 = clientamount(input$Rank)
      client.freq(n1[1])[[1]]
    })
    
+   #Output the time interval plot
    output$Diffplot <- renderPlot({
      n1 = clientamount(input$Rank)
      client.difference(n1[1])[[1]]
@@ -135,6 +130,7 @@ server <- function(input, output) {
      paste("Client",n2[1],"has",n2[2],"times visits to UMD, the average times visiting per year is",round(aveyear.p,3),"and the average time lag is",round(mean.p,3))
    })
    
+   #For Problem 3, it shows the association between selected 2 variables
    output$CorrPlot <- renderPlot({
      Corr(input$x.axis,input$y.axis,input$range2)
    })
