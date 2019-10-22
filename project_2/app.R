@@ -1,4 +1,3 @@
-
 library(shiny)
 library(shinydashboard)
 library(shinythemes)
@@ -6,7 +5,7 @@ library(shinythemes)
 source("helper_functions.R")
 
 
-# Define UI for application that draws a histogram
+# Define UI for application that draws three problems: Changing Trend of Different variables, Clients who rank the top n in times visiting UMD, and correlation among some specific variables
 ui <- fluidPage(
   navbarPage(
     themeSelector(),
@@ -93,7 +92,8 @@ ui <- fluidPage(
                #The output results show the scatterplot and we grouped it by 4 quarters
                mainPanel(
                  plotOutput(outputId = "CorrPlot"),
-                 helpText("The points are divided by quarters into 4 group and we want to see if there's some link between seasons and those data")
+                 helpText("The points are divided by quarters into 4 group and we want to see if there's some link between seasons and those data.",
+                          "We do some filter work: Clear all the NA, remove the points whose 'Food Pounds' is greater than 500 and whose 'Food Provided for' <= 0")
                )
              )
     )
@@ -139,3 +139,4 @@ server <- function(input, output) {
 # Run the application 
 shinyApp(ui = ui, server = server)
 
+# I will give explanation and conclusions in final project

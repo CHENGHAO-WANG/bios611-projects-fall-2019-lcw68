@@ -6,12 +6,13 @@ Sys.setlocale("LC_TIME", "English")
 
 UMD1 <- read_tsv("https://raw.githubusercontent.com/biodatascience/datasci611/gh-pages/data/project1_2019/UMD_Services_Provided_20190719.tsv")
 UMD1$Date <- as.Date(UMD1$Date, "%m/%d/%Y")
-#Data Preparation 
+#Data Preparation, and the introduction is in READme file.
 
 #clear out the extraneous variable, clear the unmeaningful date and add "year","month","weekday" variable
 UMD1 <- UMD1%>%filter(Date <= Sys.Date())%>%select(-Referrals,-`Field1`,-`Field2`,-`Field3`)%>%arrange(Date,`Client File Number`,`Client File Merge`)%>% mutate(year = as.numeric(format(Date,"%Y")))
 UMD2 = UMD1 %>% select(Date,year,`Client File Number`,`Food Provided for`,`Food Pounds`,`Clothing Items`,`School Kits`,`Diapers`,`Hygiene Kits`)%>%mutate(month = as.integer(format(Date,"%m")),weekday = weekdays(Date),season = quarters(Date))
 
+# Problem 1
 #Construct a function whose variable is y-axis, group based time unit and the year range. Do some Cleaning work in the function
 fselect <- function(column,timing,range)
 {
@@ -29,6 +30,7 @@ fselect <- function(column,timing,range)
     Dat = Dat %>% filter(Diapers < 500)
   }
   Dat = Dat%>%filter(year >= range[1] & year <= range[2])
+  
   #When consider the weekday and month, we draw both the boxplot and line chart since the average could not represents the property of data points very clearly
   if(timing == "weekday")
   {
@@ -58,6 +60,8 @@ fselect <- function(column,timing,range)
   }
 }
 
+
+# Problem 2
 # Calculate the client file number and its frequency.
 clientamount <- function(p)
 {
@@ -66,7 +70,7 @@ clientamount <- function(p)
   return(c(clientname,clientfreq))
 }
 
-#This is the function for calculate the time interval
+#This is the function for calculate the time interval;
 differtime <- function(x)
 {
   n = length(x)
@@ -95,10 +99,15 @@ client.freq <- function(number)
   return(list(q,mean(client.data$count)))
 }
 
-#Correlation Exploration 
+#Problem 3: Correlation Exploration, will be improved in final project
 
 Corr <- function(string1,string2,range)
 {
-  UMD2 %>% select(Date,year,season,`Client File Number`,`Food Provided for`,`Food Pounds`,`Clothing Items`,Diapers)%>% filter(`Food Pounds` < 300, `Food Provided for` > 0, Diapers < 1000,year <= range[2], year >= range[1])%>% mutate(Food.average = `Food Pounds`/`Food Provided for`)%>%
-    drop_na(string1,string2)%>%ggplot(aes(x = get(string1),y = get(string2),group = season,col = season))+geom_point()+labs(x = string1, y = string2, title= "Scatterplot")+theme_bw()
+  tpdata = UMD2 %>% select(Date,year,season,`Client File Number`,`Food Provided for`,`Food Pounds`,`Clothing Items`,Diapers)%>% mutate(Food.average = `Food Pounds`/`Food Provided for`)%>%
+    drop_na(string1,string2)%>% filter(`Food Pounds` < 1000, `Food Provided for` > 0, year <= range[2], year >= range[1])
+  if(string1 == "Diapers" || string2 == "Diapers")
+  {
+    tpdata = tpdata%>%filter(Diapers < 1000)
+  }
+  tpdata%>%ggplot(aes(x = get(string1),y = get(string2),group = season,col = season))+geom_point()+labs(x = string1, y = string2, title= "Scatterplot")+theme_bw()
 }
