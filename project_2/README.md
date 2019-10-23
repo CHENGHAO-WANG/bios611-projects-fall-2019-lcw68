@@ -13,3 +13,7 @@ I would like to explore some of the questions below:
 ## Methods
 
 I will use shiny Dashboard to finish some visualization work, showing a more user-friendly interface to allow the user explore the data by their own. Also, I might introduce additional data source to help me finish the project.
+
+## Result
+
+The result is in [https://lcw68.shinyapps.io/project_2/](https://lcw68.shinyapps.io/project_2/)
