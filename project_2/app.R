@@ -140,3 +140,4 @@ server <- function(input, output) {
 shinyApp(ui = ui, server = server)
 
 # I will give explanation and conclusions in final project
+# rsconnect::deployApp("~/GitHub/bios611-projects-fall-2019-lcw68/project_2")

@@ -1,6 +1,8 @@
 library(tidyverse)
 library(ggplot2)
+library(base)
 library(reshape2)
+library(ggpubr)
 Sys.setlocale("LC_TIME", "English")
 #This is for transforming the default language in function weekdays
 
@@ -36,8 +38,8 @@ fselect <- function(column,timing,range)
   {
     p = ggplot(Dat,aes(x=get(timing),y=get(column),group = get(timing)))+geom_boxplot()+labs(x=timing,y=column,title="Changing Trend boxplot")+theme_bw()
     Dat = Dat %>%group_by(get(timing))%>%summarise(y.column = mean(get(column)))%>%rename("time unit" = "get(timing)")
-    Dat$'time unit' = as.double(ordered(Dat$`time unit`,level = c("Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday")))
-    q = ggplot(Dat,aes(x=`time unit`,y=y.column)) + geom_line(size = 0.8)+theme_bw()+labs(x=timing,y=column,title="Changing Trend line chart")
+    Dat$`time unit` = ordered(Dat$`time unit`,level = c("Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"))
+    q = ggplot(Dat,aes(x=`time unit`,y=y.column,group = 1)) + geom_line(size = 0.8)+theme_bw()+labs(x=timing,y=column,title="Changing Trend line chart")
     return(ggarrange(p,q,nrow = 2))
   }
   if(timing == "month")
