@@ -20,40 +20,50 @@ ui <- fluidPage(
                              label = "Choose a variable to be y-axis",
                              choices = c("Food Provided for","Food Pounds","Clothing Items","School Kits","Diapers","Hygiene Kits"),
                              selected = "Food Provided for"),
-                 
+                 br(),
+                 textOutput(outputId = "reminding"),
+                 br(),
                  #Input the time unit base: It will give the average number
                  selectInput(inputId = "time",
                              label = "Choose a variable to be group based",
                              choices = c("year","month","weekday","Date"),
                              selected = "year"),
+                 br(),
                  
-                 # Input the period range of data you want to explore
+                 # Input the period range of data you want to explore: I would like to explore the recent 40 years' change, so I make year 1980 the starting point.
                  sliderInput(inputId = "PeriodRange",
                              label = "Choose the year range of our plot",
-                             min = 1980,
+                             min = 1999,
                              max = 2019,
                              value = c(1999,2019))
+                
+                 
                             ),
                  mainPanel(
-                   plotOutput(outputId = "TrendPlot")
+                   plotOutput(outputId = "TrendPlot"),
                    #output plot
+                   helpText("Every point in the line chart represents the average number of variables you select in the time unit you select. 
+                          For weekday and month variable, we use both boxplot and line chart to describe the property of data. Since the average number could not reveal the data distribution, and they both have a small group number.",
+                            "For year and Date variable, we only use the line chart to describe the changing trend.")
                  )
               )
             ),
     
     tabPanel("Problem 2",
-            titlePanel("Clients who rank the top n in times visiting UMD"),
-            # Find the client who has the nth most times in visiting UMD
+            titlePanel("Clients who rank in the nth place in times visiting UMD"),
+            # Find the client whose UMD visiting times is in the nth place. 
              sidebarLayout(
                
                sidebarPanel(
                  numericInput(inputId = "Rank",
-                              label = "Choose the rank of visiting times of the client to explore",
+                              label = "Choose the rank of visiting times of the client to explore (1-1000)",
                               value = 1,
                               min = 1,
                               max = 1000),
                   br(),
-                  textOutput(outputId = "comment")
+                  textOutput(outputId = "comment"),
+                  br(),
+                  h4("Index here only means we list the time lag data in time sequence, and we can regard it as a counter.")
                ),
                
                #The output results show the histogram of visiting times for selected Client and the time interval of the next two visits.
@@ -82,6 +92,10 @@ ui <- fluidPage(
                               selected = "Food Pounds"
                               ),
                  br(),
+                 checkboxGroupInput(inputId = "season.selection",
+                                    label = "Select the quarters you want to explore",
+                                    choices = c("Q1","Q2","Q3","Q4")),
+                 br(),
                  sliderInput(inputId = "range2",
                              label = "Choose the year range of our plot",
                              min = 1990,
@@ -92,7 +106,7 @@ ui <- fluidPage(
                #The output results show the scatterplot and we grouped it by 4 quarters
                mainPanel(
                  plotOutput(outputId = "CorrPlot"),
-                 helpText("The points are divided by quarters into 4 group and we want to see if there's some link between seasons and those data.",
+                 helpText("The points are divided by quarters into 4 group and we want to see if there's some link between seasons and those data. This is not clustering. You could select any quarter you want to explore. ",
                           "We do some filter work: Clear all the NA, remove the points whose 'Food Pounds' is greater than 500 and whose 'Food Provided for' <= 0")
                )
              )
@@ -110,6 +124,10 @@ server <- function(input, output) {
       fselect(input$var,input$time,input$PeriodRange)
    })
   
+   output$reminding <- renderText({
+     ys = ystart(input$var)
+     paste0("For variable ",input$var,", please select the starting year greater than ", ys)
+   })
    #Output the frequency barplot
    output$FreqPlot <- renderPlot({
      n1 = clientamount(input$Rank)
@@ -132,7 +150,7 @@ server <- function(input, output) {
    
    #For Problem 3, it shows the association between selected 2 variables
    output$CorrPlot <- renderPlot({
-     Corr(input$x.axis,input$y.axis,input$range2)
+     Corr(input$x.axis,input$y.axis,input$range2,input$season.selection)
    })
 }
 
