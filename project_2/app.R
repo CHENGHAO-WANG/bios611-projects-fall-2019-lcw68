@@ -63,7 +63,7 @@ ui <- fluidPage(
                   br(),
                   textOutput(outputId = "comment"),
                   br(),
-                  h4("Index here only means we list the time lag data in time sequence, and we can regard it as a counter.")
+                  h4("'Index' here only means we list the time lag data in time sequence, and we can regard it as a counter.")
                ),
                
                #The output results show the histogram of visiting times for selected Client and the time interval of the next two visits.
@@ -75,7 +75,7 @@ ui <- fluidPage(
             )
           ),
     tabPanel("Problem 3",
-             titlePanel("Correlation Among Food Supply and Clothing Items and amount of people who receive the food"),
+             titlePanel("Correlation Among Different Variables: Group by quarters"),
              
              # Explore the correlation among different variables in different time range
              sidebarLayout(
