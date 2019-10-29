@@ -93,7 +93,7 @@ differtime <- function(x)
 client.difference <- function(number)
 {
   client.data <- UMD1 %>% select(Date,year,`Client File Number`)%>%filter(`Client File Number` == number,year >= 1999)%>%mutate(interval = differtime(Date),index = 1:length(Date))
-  p = ggplot(client.data,aes(x = index,y = interval))+geom_line(size=0.7)+ylim(c(0,365))+labs(x = "Index",y = "Time Interval",title = "Time Interval for Different Client")+theme_bw()
+  p = ggplot(client.data,aes(x = index,y = interval))+geom_line(size=0.7)+ylim(c(0,365))+labs(x = "Index",y = "Time Interval",title = "Time Interval of the adjacent two visit of the client we select")+theme_bw()
   return(list(p,mean(client.data$interval)))
 }
 
