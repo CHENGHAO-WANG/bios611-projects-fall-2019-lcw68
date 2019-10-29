@@ -6,7 +6,7 @@ The dataset shows some variables that represent support for the people in need b
 ## Potential Questions
 I would like to explore some of the questions below:
 * The trend of different supplies changing by year, month, week and day, especially food supply. When we change the time unit, we calculate the average number 
-* For those who are in the nth(1-1000) place in the list of the person-time who received help from UMD, we would like to see the time interval of their seeking for help, and explore the changing trend of supplies demand.
+* For those who is in the nth(1-1000) place in the list of the UMD visiting person-time, we would like to see the yearly visiting times distribution, time interval of their seeking for help, and explore the changing trend of supplies demand. 
 * I would show different changing tendency plot among any two variables we select to search for their correlation. Also, I will consider the influence brought by quarters. People could selet the quarters they want to see if there's any association between variables and quarters.
 
 ## Methods
