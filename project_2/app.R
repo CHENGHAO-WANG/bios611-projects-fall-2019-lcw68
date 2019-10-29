@@ -43,7 +43,7 @@ ui <- fluidPage(
                    plotOutput(outputId = "TrendPlot"),
                    #output plot
                    helpText("Every point in the line chart represents the average number of variables you select in the time unit you select. 
-                          For weekday and month variable, we use both boxplot and line chart to describe the property of data. Since the average number could not reveal the data distribution, and they both have a small group number.",
+                          For weekday and month variable, we use both boxplot and line chart to describe the property of data, since the average number could not reveal the data distribution, and they both have a small group number.",
                             "For year and Date variable, we only use the line chart to describe the changing trend.")
                  )
               )

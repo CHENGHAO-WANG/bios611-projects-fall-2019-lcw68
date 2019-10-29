@@ -35,9 +35,11 @@ fselect <- function(column,timing,range)
   #When consider the weekday and month, we draw both the boxplot and line chart since the average could not represents the property of data points very clearly
   if(timing == "weekday")
   {
-    p = ggplot(Dat,aes(x=get(timing),y=get(column),group = get(timing)))+geom_boxplot(alpha = 0.8)+labs(x=timing,y=column,title="Changing Trend boxplot")+theme_bw()+scale_x_discrete(limits = seq(1,7,1))
+    p = ggplot(Dat,aes(x=get(timing),y=get(column),group = get(timing)))+geom_boxplot(alpha = 0.8)+
+      labs(x=timing,y=column,title="Changing Trend boxplot")+theme_bw()+scale_x_discrete(limits = seq(1,7,1))
     Dat2 = Dat %>%group_by(get(timing))%>%summarise(y.column = mean(get(column)))%>%rename("time unit" = "get(timing)")
-    q = ggplot(Dat2,aes(x=`time unit`,y=y.column,group=1)) + geom_line(size = 0.8)+theme_bw()+labs(x=timing,y=column,title="Changing Trend line chart")+scale_x_discrete(limits = seq(1,7,1))
+    q = ggplot(Dat2,aes(x=`time unit`,y=y.column,group=1)) + geom_line(size = 0.8)+theme_bw()+
+      labs(x=timing,y=column,title="Changing Trend line chart")+scale_x_discrete(limits = seq(1,7,1))
     #return(q)
     return(ggarrange(p,q,nrow = 2))
   }
@@ -90,6 +92,8 @@ differtime <- function(x)
 }
 
 # This is the function for generate the time interval plot and calculate the mean by year
+
+# ATTENTION: The plot name here is different from the shiny app shows, since I cannot deploy it using my own computer. Index here is just a counter, listing all the time lag.
 client.difference <- function(number)
 {
   client.data <- UMD1 %>% select(Date,year,`Client File Number`)%>%filter(`Client File Number` == number,year >= 1999)%>%mutate(interval = differtime(Date),index = 1:length(Date))
