@@ -16,3 +16,7 @@ I will use shiny Dashboard to finish some visualization work, showing a more use
 ## Result and Conclusions
 
 The result is in [https://lcw68.shinyapps.io/downloads/](https://lcw68.shinyapps.io/downloads/). We could see that some items are influenced by season, hygiene kits and diapers shows decreasing trend around July. And we could find that there's no obvious clustering characteristics when we draw the plot grouped by quarters, but there's still little association between quarters and the variable correlation we would like to explore. By exploring problem 2, UMD could better understand the specific client's demand and their frequency, which could help assign the resources more efficiently.
+
+### Attention
+
+The name of time interval plot in Problem 2 should be "Time Interval of the adjacent two visit of the client we select", since I could not deploy the app in my computer right now I could not change it right away.
