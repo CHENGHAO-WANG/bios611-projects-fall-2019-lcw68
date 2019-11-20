@@ -1,5 +1,6 @@
 library("tidyverse")
 library(car)
+setwd("~/GitHub/datasci611/data/project2_2019")
 client.entry = read_tsv("client_total.tsv")
 client.entry = client.entry%>%select(-X1)
 head(client.entry)
