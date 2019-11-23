@@ -84,3 +84,4 @@ corrplot(A)
 After conducting the correlation test and the correlation plot, we found that the time difference has little correlation with these continuous variable, but it actually shows the trend.
 
 
+
