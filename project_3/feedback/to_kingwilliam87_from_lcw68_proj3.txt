@@ -1,0 +1,48 @@
+Thanks for your great work on project 3. It seems that you've paid lots of effort on it!
+
+Let me follow the questions to give comments.
+1. Is the project organized modularly, with Make as the workflow manager?
+
+not yet, but it's organized modularly.
+2. Does the project use both Python (Pandas specifically) and R (Tidyverse specifically) scripts?
+
+Yes, it's well organized
+3. Is Docker used to define execution environments appropriately?
+Not yet
+4. Are the plots appropriate for the data types, the hypotheses being tested, and the points being communicated?
+The plots fit them well
+5. How can the project be organized or documented more clearly?
+
+I think you've done a lot of work, but it seems also onerous. While changing the variables' name is helpful for people to understand, from my opinion I think you could decrease some unnecessary steps.
+
+6. Is the purpose of the project communicated clearly?
+
+Yes, for Readme file, you give a very detailed explanation on the reason why you want to do the analysis and the goal you want to achieve, 
+It's in very clear logic and I really admire it. I think you could list some of the concrete variables as an example of introduction.
+
+7. Does the purpose of the project make sense from the client¡¯s point of view? How could the project better serve the client?
+
+Adding a model for individual to predict is better from client's perspective. Also conducting some statistical analysis is great.
+
+8. Is the source of the data made clear? (Remember that this project can be part of your public portfolios, so people not familiar with UMD may see it).
+
+
+Yes it's clear.
+9. Is the interpretation of figures clearly explained?
+
+
+I think you could add more comments.
+10. Is the purpose and interpretation of analysis steps clearly communicated?
+
+Yes, well explained.
+11. Are overall take-home messages clearly communicated?
+Yes
+
+For the wrangling work, it's great to see such a detailed analysis based on almost all the variables we could explore. You give clear statement
+before the wrangling work you will do, and also give reasons for why you would select that variables. I think use value_counts function 
+is a great idea, but it still seems too long. My suggestions are that you could mainly focus on some of the datasets, and I notice 
+there's still some error when you compile the code.
+
+For plots in R, you give a good framework for your job, and I think there's still space for you to explore some other plot. I notice that you mentioned there's a memory error when you try to merge all the data files, what if you try combining less columns and try to write out more files for analysis? 
+
+I hope you could solve the problem. And another advice is that you could adjust the word size in your ipynb file to show a clearer label. Don't forget to add html file at last. Good luck in your final project!

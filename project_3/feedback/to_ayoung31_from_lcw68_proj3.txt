@@ -1,0 +1,19 @@
+You've done a great job although it wasn't finished, and I think I could learn something from your work.
+
+Let me clarify by following the questions.
+Although the makefile and dockerfile haven't be built yet, you use both python and R scripts very correctly, and I think the plots you've made are
+approriate for the data types you used and the hypothesis.you've made some great plots, and I think it would be better if you add some more comments after drawing the plot. For the html report file, it's well organized and you listed some of different aspects for people to see the interesting
+ characteristics of the clients. I think "reason for leaving the shelter" variable is nice, a very creative perspective. Transforming the amount to
+ proportion is also a good idea. One thing I am concerned is that you could list your conclusion from your every plot initially, and then combine
+ them together at last. Also, it might be better if you put one variables as key analysis object.
+
+I think from the client's perspective, this project is also very helpful,one suggestion is that you could add some model to predict for the individual client, which might be more convenient for client.
+
+For the data source, it is well explained in the readme file. For Readme file, I am really fond of the structure you built and clear statement you made. It is great that you also provide the useful variables. I think the potential specific questions could be also included into the readme file.
+
+For wrangling work, since it is not complete, I am not able to comment a lot, but it's still very effective and well-organized work. 
+You could add some data columns to show your calculation results based on the original data. You could also consider more datasets that are provided. 
+
+Some more steps and interpretation of analysis could also be added to make it clear to different people.
+
+Good luck to your final project!

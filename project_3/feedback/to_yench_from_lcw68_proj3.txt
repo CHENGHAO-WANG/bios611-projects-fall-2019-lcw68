@@ -1,0 +1,51 @@
+You've done lots of work on wrangling the data, and the perspective you look at the problem is very creative. 
+
+I will give comments following by the provided questions.
+
+1. Is the project organized modularly, with Make as the workflow manager?
+
+Yes, it's organized modularly, and it has the makefile.
+
+2. Does the project use both Python (Pandas specifically) and R (Tidyverse specifically) scripts?
+
+Yes, good job.
+
+3. Is Docker used to define execution environments appropriately?
+
+Not yet.
+4. Are the plots appropriate for the data types, the hypotheses being tested, and the points being communicated?
+
+no plots code provided yet.
+5. How can the project be organized or documented more clearly?
+For your python file, it is very detailed and gives friendly explanation. I will think it better if you could use jupyter notebook to show some
+ results while you are doing the wrangling job, since people are not familiar with the dataset you provide, especially the variables that 
+correspond to our dataset.
+
+6. Is the purpose of the project communicated clearly?
+
+Yes
+7. Does the purpose of the project make sense from the client¡¯s point of view? How could the project better serve the client?
+I will think it helpful since another demographic dataset is introduced.
+
+8. Is the source of the data made clear? (Remember that this project can be part of your public portfolios, so people not familiar with UMD may see it).
+
+Yes
+
+
+9. Is the interpretation of figures clearly explained?
+
+
+
+No figures yet
+
+10. Is the purpose and interpretation of analysis steps clearly communicated?
+
+It gives good explanation for every step in python file.
+
+11. Are overall take-home messages clearly communicated?
+
+Yes
+For README file, the introduction of another dataset is a good idea, since you want to compare the different population composition between UMD client and local population. The questions you raise are also worth to consider. 
+
+Also don't forget to provide your R plot code and html report, as well as the makefile and Docker. Good luck on your final project!
+
