@@ -13,7 +13,7 @@ Not yet
 The plots fit them well
 5. How can the project be organized or documented more clearly?
 
-I think you've done a lot of work, but it seems also onerous. While changing the variables' name is helpful for people to understand, from my opinion I think you could decrease some unnecessary steps.
+I think you've done a lot of work, but it seems also onerous. While changing the variables' name is helpful for people to understand, from my opinion I think you could decrease some unnecessary steps. You could use .isin or replace function to change values' name quickly.
 
 6. Is the purpose of the project communicated clearly?
 
