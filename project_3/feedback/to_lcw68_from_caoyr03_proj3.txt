@@ -1,0 +1,18 @@
+Overall, you have done a really great job! 
+Your correlation plot is very interesting to read.  Exploring staying time with
+other attributes about the population is also a good point. 
+You clearly communicated your purpose of analysis in your readme and script file.
+I could easily follow your analysis along your Python and R script file with the 
+help of your comment and plots. I appreciate how your code and plot are closely
+interacted. It would also be great if you could add some comments about findings
+to each of your analysis instead of simply printing out the head of the datatable.
+
+One thing you could improve later on is to use Make and Docker file to organize
+your workflow of project. It not only help users to run your whole project at 
+a time, it could also serve as an ideal interpreter of what role each file is
+playing in general. Otherwise, you could add some explanation in your readme
+with illustration what you did in each R and Python file and what output could 
+be expected inside. If taking further, you could even insert your saved plot 
+image into your readme 'Result' section to show a full cycle of project.
+
+I appreciate your hardwork and amazing project! Thanks!

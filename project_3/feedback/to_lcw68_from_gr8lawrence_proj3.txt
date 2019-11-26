@@ -1,0 +1,30 @@
+Very solid project! I love the questions you proposed because they look practically
+helpful. The data wrangling was done efficiently using Pandas and RMarkdown was well.
+The data visualization is done expertly (I like your choice of using a mixture of
+graphics to demonstrate distribution and correlation).The Makefile and Dockerfile
+are correctly utilized. Here are some suggestions I made based on my overview of the
+project:
+
+(1) You did a great job trying to explain the variables in your analysis. However, what can be
+more efficiently done for result communication is giving better titles/labels for your plots
+because they are the centers of your exposition. For example, in the first plot, you might choose
+"Duration of Stay" instead of "Average Time Difference" because you are already plotting
+out every client's staying time. In the second plot, you might want to add "days" as
+units of your "Time Length" on the x-axis.
+
+(2) For some data (such as the duration of stay for each clients), in addition to
+their distribution, you might want to provide some summary table as well (for mean,
+quantiles, etc.). To make the table in R Markdown, just put all summary statistics into a data frame,
+and use knitr::kable().
+
+(3) Even though using a variety of plots can enrich the visual experience of your reader, I
+strongly suggest using similar plots for exploring certain aspects of the data. For example,
+you might want to stick with scatterplots when plotting the correlations, instead of using
+a histogram for "correlation between age and income".
+
+(4) You can add the correlation coefficients to the plots instead of outputting them in the
+raw format, which can be kind of obscure for people who have never seen R outputs before.
+You can add them as footnotes or annotations.
+
+(5) You might want to explain each plot using two or three sentences so their meanings are clearer
+to the readers.
