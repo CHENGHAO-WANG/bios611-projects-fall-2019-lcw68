@@ -1,4 +1,4 @@
-# Project 3 Draft
+# Project 3 
 
 ## Background 
 
@@ -8,7 +8,7 @@ The dataset shows some variables that represent support for the people in need b
 ## Problem
 
 I might consider the problems below:
-* The time of staying at shelter for different clients: will it be linked to some variables such as income, health insurance or living situation at entry? We might build a model to predict the future clients' staying time in shelter based on his character.
+* The Duration of staying at shelter for different clients: will it be linked to some variables such as income, health insurance or living situation at entry? We might build a model to predict the future clients' staying time in shelter based on his character.
 * We will explore the change of some variables at exit regarding the variables at entry. What kind of help did the UMD shelter provide?
 * Is there any trend of entering shelter regarding the month? We will check the time trend to suggest if UMD should make some extra preparation in some period. Also, we will check how many times the clients usually visits shelters and make a summary about the time lag between two visits.
 
