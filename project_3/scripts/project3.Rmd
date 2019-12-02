@@ -52,6 +52,7 @@ client.entry%>%group_by(`Client ID`)%>%summarise(visit = mean(Visit_time),durati
 
 #Histogram of entry age
 client.entry%>%ggplot(aes(x= Entry_age,y=..density..))+geom_histogram(bins = 20, fill = "red")+geom_density(adjust = 0.5,size=1)+ggtitle("Age Distribution")
+
 ```
 
 Conclusions: we could see that the distribution of staying duration seems fit for our expectation, most of people stay for not very long time, and The duration of people who stayed most at the shelter is 894 days. And from the scatterplot we could see the trend that the more frequent one visit the shelter, the less time they usually will stay every time. As for entry age, most people are around 50-60 years old.
@@ -126,10 +127,10 @@ client.entry%>%ggplot(aes(x =Entry_age,y = income_month))+geom_point()+geom_smoo
 client.entry.new%>%drop_na(healins,income_month)%>%filter(healins < 50)%>%ggplot(aes(x =income_month,y = healins))+geom_point()+geom_smooth()+theme_bw()+labs(x="Income",y = "insurance",title = "correlation between Income and insurance")
 
 #Disability amount vs monthly income
-client.entry%>%filter(income_month < 25000)%>%drop_na(`Disability count`,income_month)%>%ggplot(aes(x =income_month,y = `Disability count`))+geom_point()+geom_smooth()+theme_bw()+labs(x="Income",y = "Disability count",title = "correlation between Disability count and Income")
+client.entry.new%>%filter(income_month < 25000)%>%drop_na(`Disability count`,income_month)%>%ggplot(aes(x =income_month,y = `Disability count`,col = `Client Gender`))+geom_point()+geom_smooth()+theme_bw()+labs(x="Income",y = "Disability count",title = "correlation between Disability count and Income")
 
-#homelesstime vs monthly income
-client.entry%>%filter(healins < 50)%>%drop_na(`Receiving Benefit (Entry)`,healins)%>%ggplot(aes(y =income_month,x = `Receiving Benefit (Entry)`))+geom_point()+geom_smooth()+theme_bw()+labs(x="Income",y = "Disability count",title = "correlation between Disability count and Income")
+#NonCash benefit vs monthly income
+client.entry%>%filter(healins < 50)%>%drop_na(`Receiving Benefit (Entry)`,healins)%>%ggplot(aes(y =income_month,x = `Receiving Benefit (Entry)`))+geom_point()+geom_smooth()+theme_bw()+labs(x="Income",y = "Disability count",title = "correlation between noncash benefit and Income")
 
 # Conduct correlation test and draw the corrplot
 cor.test(client.entry.new$duration.ave,client.entry.new$income_month)
@@ -161,7 +162,7 @@ data.frame(client.entry$income_month,client.exit$income_month_exit)%>%gather(cli
 
 data.frame(client.entry$`Disability count`,client.exit$`Disability count`)%>%gather(client.entry..Disability.count.,client.exit..Disability.count.,key = "Disability", value = "count")%>%
   ggplot(aes(x=count,fill = Disability,group = Disability))+geom_histogram(bins = 30,position="dodge")+
-  scale_fill_manual(values=c("red","blue"),labels = c("entry","exit"),breaks = c("client.entry..Disability.count.","client.exit..Disability.count."))+ggtitle("Disability count at entry and exit")
+  scale_fill_manual(values=c("red","blue"),labels = c("entry","exit"),breaks = c("client.entry..Disability.count.","client.exit..Disability.count."))+labs(x="Disability count",y="Freq",title = "Disability count at entry and exit")
 
 ```
 
@@ -185,7 +186,7 @@ summary(mod2)
 
 From the plot we could see there's a linear correlation between residuals and fitted values, so the residuals still contain the information for fitted values; We found that "Entry Age",gender,veteran status, ethnicity, disability count and homeless time have the significant p-value, and the signal of estimate coefficients uncover the effect on the change of Duration. It passes F test but the $R^{2}$ statistics is very small.
 
-We found that compared with non-veteran, those who are veteran usually stay less time at shelter; those who are older are more possible to stay longer; those who are homeless more than one year will be less possible to stay longer than those whose homeless time is less than 6 months. We also find the 
+We found that compared with non-veteran, those who are veteran usually stay less time at shelter; those who are older are more possible to stay longer; those who are homeless more than one year will be less possible to stay longer than those whose homeless time is less than 6 months. 
 
 
 ## Problem 3: Check if there's a trend regarding months
@@ -200,7 +201,7 @@ client.entry%>%drop_na(income_month)%>%group_by(`Entry Month`)%>%summarise(money
   labs(x="month",y="income",title = "Income vs entry month: Any trend?")+scale_x_continuous(breaks = seq(0,12,3))+theme_bw()
 
 dat1 = as.data.frame(table(client.entry%>%select(`Entry Month`,homelesstime)))
-ggplot(dat1,aes(x=Entry.Month,y=Freq))+geom_line(aes(group=homelesstime,col = homelesstime),size=1)
+ggplot(dat1,aes(x=Entry.Month,y=Freq))+geom_line(aes(group=homelesstime,col = homelesstime),size=1)+labs(title = "Entry Month change regarding homeless time")
 chisq.test(table(client.entry%>%select(`Entry Month`,homelesstime)))
 
 ```
@@ -211,4 +212,4 @@ Actually we found not very obvious correspondance, it seems that when entering t
 
 We've done lots of work, tried to explore the different dimensions of data and looked for the link with staying duration.
 The main composition of the shelter is black people, Non-hispanic, and male. Most of them are old people, and we found "Entry Age,gender,veteran status, ethnicity, disability count and homeless time" these variables are significant in linear model. And we indeed got some change before and after the entry of shelter. 
-Also based on the result in python, 50% people didn't complete the program when they select to leave. I think our next step analysis is to figure out what leads to their departure, is it correlated to any other feature?
+Also based on the result in python, 50% people didn't complete the program when they select to leave. I think our next step analysis is to figure out what leads to their departure, is it correlated to any other feature? Besides, the prediction ability of the linear model is not good, we will explore more other potential influenced variables.

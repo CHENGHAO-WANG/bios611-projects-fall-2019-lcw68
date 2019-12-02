@@ -5,6 +5,8 @@ client.exit = read_tsv("../data/client_total_exit.tsv")
 client.exit = client.exit%>%select(-X1)
 
 head(client.entry)
+###Notice: most of the plot are in Rmd file, I just leave little part of plots in this file.
+
 
 # Draw the distribution plot of the staying time at shelter
 
@@ -34,7 +36,7 @@ ggsave("income distribution by race.png",width = 6,height = 4)
 
 client.entry%>%drop_na(income_month)%>%ggplot(aes(y=income_month, x = `Client Gender`,fill = `Client Gender`))+geom_boxplot()
 client.entry%>%filter(race %in% c("Black or African American (HUD)","White (HUD)","American Indian or Alaska Native (HUD)"))%>%drop_na(income_month)%>%ggplot(aes(x=race,y=income_month,fill=race))+geom_boxplot()
-
+ggsave("race vs icome.png",width=6,height = 4)
 # For race variable, we could divide them into two main category and merge others as NA.
 client.entry%>%drop_na(homelesstime)%>%ggplot(aes(y=income_month, x = homelesstime,fill = homelesstime))+geom_boxplot()
 
@@ -43,8 +45,8 @@ client.entry%>%drop_na(healins)%>%filter(healins < 50)%>%ggplot(aes(x = `Client 
 client.entry%>%drop_na(healins)%>%ggplot(aes(x=healins))+geom_histogram(bins = 100)
 
 # Draw the distribution of age 
-client.entry%>%drop_na(Entry_age)%>%ggplot(aes(x=Entry_age))+geom_bar()+labs(title = "Age Distribution")+theme_grey()
-
+client.entry%>%ggplot(aes(x= Entry_age,y=..density..))+geom_histogram(bins = 20, fill = "red")+geom_density(adjust = 0.5,size=1)+ggtitle("Age Distribution")
+ggsave("age distribution", width = 5, height = 6)
 # Draw the distribution of homelesstime
 client.entry%>%drop_na(homelesstime) %>% ggplot(aes(x=homelesstime))+geom_bar()
 #Conclude that most clients who entered shelter are around 50 years old.
@@ -61,8 +63,6 @@ client.entry%>%filter(`Client Ethnicity` %in% c("Hispanic/Latino (HUD)","Non-His
 client.entry%>%drop_na(homelesstime)%>%ggplot(aes(x=homelesstime,y=`Time Difference`,fill = homelesstime))+geom_boxplot()
 cordat = as.data.frame(client.entry%>%select(`Time Difference`,income_month,healins,Entry_age,`Disability count`,homelesstime,`Receiving Benefit (Entry)`)%>%drop_na(`Time Difference`,income_month,healins,Entry_age,`Disability count`))
 A = cor(cordat) 
-p = corrplot(A)
-ggsave("correlation plot.png",width = 6, height = 6)
 
 #Check if there's a trend for seasons:
 
@@ -71,8 +71,13 @@ client.entry%>%drop_na(income_month)%>%group_by(`Entry Month`)%>%summarise(money
 
 client.entry%>%drop_na(`Disability count`)%>%ggplot(aes(y =`Disability count`,x = `Entry Month`))+geom_point()
 
+# Compare entry and exit:
+client.entry%>%drop_na(income_month)%>%group_by(`Entry Month`)%>%summarise(money = mean(income_month))%>%
+  ggplot(aes(x=`Entry Month`,y = money))+geom_line()+ 
+  labs(x="month",y="income",title = "Income vs entry month: Any trend?")+scale_x_continuous(breaks = seq(0,12,3))+theme_bw()
+ggsave("income change after shelter",width = 4, height = 6)
 
-
+# Conduct some chi square test to see the correlation of two categorical variables
 dat1 = table(client.entry.new%>%select(`Client Ethnicity`,homelesstime))[-(1:3),]
 chisq.test(dat1+1)
 
