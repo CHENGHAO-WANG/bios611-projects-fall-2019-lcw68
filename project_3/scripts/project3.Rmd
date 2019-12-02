@@ -8,9 +8,11 @@ output: html_document
 library(tidyverse)
 library(car)
 library(corrplot)
-setwd("~/GitHub/bios611-projects-fall-2019-lcw68/project_3/scripts")
-client.entry = read_tsv("client_total.tsv")
+client.entry = read_tsv("../data/client_total_entry.tsv")
 client.entry = client.entry%>%select(-X1)
+client.exit = read_tsv("../data/client_total_exit.tsv")
+client.exit = client.exit%>%select(-X1)
+client.demo = read_tsv("../data/client_demographic.tsv")[,-1]
 ```
 
 ## Introduction to the dataset and things we want to explore
@@ -20,68 +22,195 @@ Urban Ministries of Durham provides various datasets for us to explore the diffe
 We will show the wrangling process in python and make some plots in R. The variables we will use mainly contain: 
 * Demographic statistics, including the race, age, ethinicity, gender...
 * Time statistics, including the date who enter the shelter, the date who exit the shelter, the start and end date for income, health insurance...
-* Categorical statistics for living condition, such as the health insurance coverage, living status, monthly income source, disability type.
+* Categorical statistics for living condition, such as the health insurance coverage, living status, monthly income source, disability type. 
 
 We want to use some kind of variables to construct the correlation with staying time at the shelter. Also, we will see if there's some variables highly correlated, and consider the comparison between entry and exit to see if clients got enough help in shelters. Based on these two analysis, we will also conduct some other interesting analysis work.
 
-### The distribution plot for the staying time
+We will explain our variables: "disability count" means the total disability one client had, , and "healins" means the health insurance one received at entry.
 
-First I would like to explain the variables here: "Disability count" means that the total amount of disability the client has; "healins" has the similar meaning as for health insurance. And the "income_month" add all the income source of the client.
+## Exploration: Different variables vs the length of staying time
+
+In the first part we will draw lot of plots to explore the variables listed in our dataset, and also try to see if there's correlation with duration.
+
+### The distribution plot for the staying duration and visiting times
+
+First I would like to explain the variables here: "Disability count" means that the total amount of disability the client has; "healins" has the similar meaning as for health insurance. And the "income_month" add all the income source of the client. "Receiving Benefit" means the amount of cash support they received at first.
+
 ```{r Time}
-p1 = client.entry %>%drop_na("Time Difference")%>%group_by(`Client ID`)%>%
+p1 = client.entry %>%drop_na(`Time Difference`)%>%group_by(`Client ID`)%>%
   summarise(td = mean(`Time Difference`),age = min(Entry_age), visit = mean(Visit_time))%>%arrange(age)%>%mutate(index = 1:2311)
 ggplot(p1,aes(x=index,y=td))+geom_bar(size = 1.5,alpha = 1,stat="identity")+
   labs(x = "Client Sorted by the year of first time entry",y= "Average Time Difference",title ="Distribution of Staying time")+ylim(c(0,500))
 
-ggplot(p1,aes(x= td, fill =age))+geom_histogram(bins = 80)+xlim(c(0,500))+labs(x="Time Length",title="Distribution of Staying Time at shelter")+theme_bw()
+ggplot(p1,aes(x= td))+geom_histogram(bins = 80)+xlim(c(0,500))+labs(x="Time Length",title="Distribution of Staying Time at shelter")+theme_bw()
+
+client.entry%>%select(`Time Difference`)%>%arrange(desc(`Time Difference`))
 
 ggplot(p1,aes(x= visit))+geom_histogram(bins = 30)+labs(x="Visit times",title="Distribution of Visit times at shelter")+theme_bw()
 
+# Scatterplot of Duration and Visit times
+client.entry%>%group_by(`Client ID`)%>%summarise(visit = mean(Visit_time),duration = mean(`Time Difference`))%>%
+  ggplot(aes(x = visit, y = duration))+geom_point(size = 1.5)+labs(x="visit times",y="duration",title = "Scatterplot of Average Duration")
+
+#Histogram of entry age
+client.entry%>%ggplot(aes(x= Entry_age,y=..density..))+geom_histogram(bins = 20, fill = "red")+geom_density(adjust = 0.5,size=1)+ggtitle("Age Distribution")
 ```
 
-## Distribution of the different potential independent variables
+Conclusions: we could see that the distribution of staying duration seems fit for our expectation, most of people stay for not very long time, and The duration of people who stayed most at the shelter is 894 days. And from the scatterplot we could see the trend that the more frequent one visit the shelter, the less time they usually will stay every time. As for entry age, most people are around 50-60 years old.
 
-We will explore the other important variables' distribution and correlation among them.
+
+Since our initial dataset contains some clients' multiple records on visiting the shelter, we will use a new dataset which will only contain one data row for every client.
+
+```{r diff}
+
+tp = client.entry%>%drop_na("Time Difference")%>%group_by(`Client ID`)%>% summarise(duration.ave = mean(`Time Difference`))
+
+client.entry.new = client.demo%>%left_join(tp,by = "Client ID")
+
+client.entry.new%>%drop_na(`Client Gender`)%>%
+    ggplot(aes(x=duration.ave,y=..density..))+geom_histogram(bins=50,aes(fill=`Client Gender`))+facet_wrap(~`Client Gender`)+geom_density(adjust = 0.5)+guides(fill=F)+labs(x="Duration",y="Density",title = "Duration Distribution under different gender")
+
+ client.entry.new%>%filter(race %in% c("Black or African American (HUD)","White (HUD)","American Indian or Alaska Native (HUD)"))%>%
+   ggplot(aes(x=duration.ave,y=..density..))+geom_histogram(bins=30,aes(fill=race),position="identity")+geom_density()+facet_grid(.~race)+guides(fill=F)+labs(x="Duration",y="Density",title = "Duration Distribution under different race")
+ 
+# For the race variable, we have more black people than white people, so we let the y axis represent density.
+
+client.entry.new%>%drop_na(homelesstime)%>%
+     ggplot(aes(x=duration.ave,y=..density..))+geom_histogram(bins=50,aes(fill=homelesstime))+geom_density(adjust=0.05)+facet_grid(.~homelesstime)+
+  labs(x="Duration",y="Density",title = "Duration Distribution under different homeless time")
+
+client.entry.new%>%drop_na(`Disability count`)%>%
+    ggplot(aes(x = `Disability count`,y=duration.ave))+geom_point(size = 1)+geom_smooth()+labs(x="disability",y="duration",title = "Duration Distribution under disability count")
+```
+
+For different variables, the duration distribution does not seem to differ a lot, but still I found that for gender, the amount of men is more than women when the duration is short; the amount of people who are homeless for more than one year will be more possible to stay at shelter shortly.
+
+
+## Distribution of the different potential independent variables: Monthly income
+
+We will explore the other important variables' distribution and correlation among them. We take monthly income as our goal.
+
 ```{r income}
+
+# Exploration of the monthly income
 #Group by two main gender
 
-client.entry%>%drop_na(income_month)%>%filter(`Client Gender` %in% c("Female","Male"))%>%ggplot(aes(x=income_month,fill = `Client Gender`))+geom_histogram(bins = 30,position = "dodge")+labs(x = "income",y = "Frequency",title = "Income Distribution")
+client.entry.new%>%drop_na(income_month)%>%filter(`Client Gender` %in% c("Female","Male"))%>%ggplot(aes(x=income_month,fill = `Client Gender`))+geom_histogram(bins = 30,position = "dodge")+
+  labs(x = "income",y = "Frequency",title = "Income Distribution")
 
 # Group by two main race
-client.entry%>%filter(race %in% c("Black or African American (HUD)","White (HUD)"),`Client Gender` %in% c("Female","Male"))%>%drop_na(income_month)%>% ggplot(aes(x=income_month,fill = race))+geom_histogram(bins = 20,position = "dodge")+theme_bw()+labs(x = "income",y = "Frequency",title = "Income Distribution")
+client.entry.new%>%filter(race %in% c("Black or African American (HUD)","White (HUD)"),`Client Gender` %in% c("Female","Male"))%>%drop_na(income_month)%>% ggplot(aes(x=income_month,fill = race))+
+  geom_histogram(bins = 20,position = "dodge")+theme_bw()+labs(x = "income",y = "Frequency",title = "Income Distribution")
 
 #Group by two main ethnicity
-client.entry%>%filter(`Client Ethnicity` %in% c("Non-Hispanic/Non-Latino (HUD)","Hispanic/Latino (HUD)"))%>%drop_na(income_month)%>%
+client.entry.new%>%filter(`Client Ethnicity` %in% c("Non-Hispanic/Non-Latino (HUD)","Hispanic/Latino (HUD)"))%>%drop_na(income_month)%>%
   ggplot(aes(x=income_month,fill = `Client Ethnicity`))+geom_histogram(bins = 20,position = "dodge")+theme_bw()+labs(x = "income",y = "Frequency",title = "Income Distribution")
 
 #Distribution of Client's health insurance amount
-client.entry%>%drop_na(healins)%>%filter(healins < 50)%>%ggplot(aes(x =healins,fill = `Client Gender`))+geom_histogram(bins = 20,position = "dodge")+theme_bw()+labs(x = "health insurance",y = "Frequency",title = "Insurance Distribution")
+client.entry.new%>%drop_na(healins)%>%filter(healins < 50)%>%ggplot(aes(x =healins,fill = `Client Gender`))+
+  geom_histogram(bins = 20,position = "dodge")+theme_bw()+labs(x = "health insurance",y = "Frequency",title = "Insurance Distribution")
 
 
 ```
 
-## Correlation among variables
+### Correlation among variables
+
+We will mainly use scatterplot to compare some variables' correlation. And we will remove some outliers.
 
 ```{r health}
-
+# Age vs health insurance
 client.entry%>%drop_na(healins)%>%filter(healins < 50)%>%ggplot(aes(x =Entry_age,y = healins))+geom_point()+geom_smooth()+theme_bw()+labs(x="Age",y = "insurance",title = "correlation between age and insurance")
 
-client.entry%>%ggplot(aes(x =Entry_age,y = income_month))+geom_bar(stat = "identity")+theme_bw()+labs(x="monthly income",title = "correlation between age and income")
+# Age vs monthly income
+client.entry%>%ggplot(aes(x =Entry_age,y = income_month))+geom_point()+geom_smooth()+theme_bw()+labs(y="monthly income",x ="entry age",title = "correlation between age and income")
 
-client.entry%>%drop_na(healins,income_month)%>%filter(healins < 50)%>%ggplot(aes(x =income_month,y = healins))+geom_point()+geom_smooth()+theme_bw()+labs(x="Income",y = "insurance",title = "correlation between Income and insurance")
+# health insurance vs monthly income
+client.entry.new%>%drop_na(healins,income_month)%>%filter(healins < 50)%>%ggplot(aes(x =income_month,y = healins))+geom_point()+geom_smooth()+theme_bw()+labs(x="Income",y = "insurance",title = "correlation between Income and insurance")
 
+#Disability amount vs monthly income
 client.entry%>%filter(income_month < 25000)%>%drop_na(`Disability count`,income_month)%>%ggplot(aes(x =income_month,y = `Disability count`))+geom_point()+geom_smooth()+theme_bw()+labs(x="Income",y = "Disability count",title = "correlation between Disability count and Income")
 
-cor.test(client.entry$`Time Difference`,client.entry$income_month)
-cor.test(client.entry$`Time Difference`,client.entry$healins)
-cor.test(client.entry$`Time Difference`,client.entry$`Disability count`)
+#homelesstime vs monthly income
+client.entry%>%filter(healins < 50)%>%drop_na(`Receiving Benefit (Entry)`,healins)%>%ggplot(aes(y =income_month,x = `Receiving Benefit (Entry)`))+geom_point()+geom_smooth()+theme_bw()+labs(x="Income",y = "Disability count",title = "correlation between Disability count and Income")
+
+# Conduct correlation test and draw the corrplot
+cor.test(client.entry.new$duration.ave,client.entry.new$income_month)
+cor.test(client.entry.new$duration.ave,client.entry.new$healins)
+cor.test(client.entry.new$duration.ave,client.entry.new$`Disability count`)
 cor.test(client.entry$`Time Difference`,client.entry$Entry_age)
-cordat = as.data.frame(client.entry%>%select(`Time Difference`,income_month,healins,Entry_age,`Disability count`)%>%drop_na(`Time Difference`,income_month,healins,Entry_age,`Disability count`))
+cordat = as.data.frame(client.entry%>%select(`Time Difference`,income_month,healins,Entry_age,`Disability count`,`Receiving Benefit (Entry)`)%>%drop_na(`Time Difference`,income_month,healins,Entry_age,`Disability count`,`Receiving Benefit (Entry)`))
 A = cor(cordat) 
-corrplot(A)
+corrplot(A,addCoef.col="grey")
+```
+
+After conducting the correlation test and the correlation plot, we found that the time difference has little correlation with these continuous variable, but it actually shows the trend. 
+
+
+## Make some test between entry data and exit data
+
+Since we are given two datasets, we could do some parametric or nonparametric testing to check if there's a change after leaving the shelter.
+
+For example, we are interested in the change of mean in income and disability count. Will it differ a lot?
+```{r test}
+t.test(client.entry$income_month-client.exit$income_month_exit)
+
+t.test(client.entry$`Disability count`,client.exit$`Disability count`,paired= TRUE,var.equal = FALSE)
+
+# Also draw the distribution plot to compare
+data.frame(client.entry$income_month,client.exit$income_month_exit)%>%gather(client.entry.income_month,client.exit.income_month_exit,key = "group1", value = "income")%>%ggplot(aes(x=income,fill = group1,group = group1))+geom_histogram(bins = 30,position="dodge")+
+  scale_fill_manual(values=c("red","blue"),labels = c("entry","exit"),breaks = c("client.entry.income_month","client.exit.income_month"))+ggtitle("Income comparison between entry and exit")
+
+
+data.frame(client.entry$`Disability count`,client.exit$`Disability count`)%>%gather(client.entry..Disability.count.,client.exit..Disability.count.,key = "Disability", value = "count")%>%
+  ggplot(aes(x=count,fill = Disability,group = Disability))+geom_histogram(bins = 30,position="dodge")+
+  scale_fill_manual(values=c("red","blue"),labels = c("entry","exit"),breaks = c("client.entry..Disability.count.","client.exit..Disability.count."))+ggtitle("Disability count at entry and exit")
 
 ```
-After conducting the correlation test and the correlation plot, we found that the time difference has little correlation with these continuous variable, but it actually shows the trend.
+
+## Construct the linear model
+
+Since we want to make a linear model based on our variables, we will firstly use some characteristics; we will first include all the variables and then decide which one should be included in the final one.
+```{r model}
+#Construct the model
+dt = client.entry%>%filter(race %in% c("Black or African American (HUD)","White (HUD)","American Indian or Alaska Native (HUD)"),`Client Gender`%in% c("Male","Female"))
+
+mod1 =lm(`Time Difference`~ Entry_age+`Client Gender`+race+`Client Veteran Status`+`Client Ethnicity`+income_month+healins+`Disability count`+`Receiving Benefit (Entry)`+homelesstime,data =dt)
+
+summary(mod1)
+
+plot(mod1)
+
+mod2 =lm(`Time Difference`~ Entry_age+`Client Veteran Status`+`Client Ethnicity`+`Disability count`+homelesstime,data =dt)
+summary(mod2)
+
+```
+
+From the plot we could see there's a linear correlation between residuals and fitted values, so the residuals still contain the information for fitted values; We found that "Entry Age",gender,veteran status, ethnicity, disability count and homeless time have the significant p-value, and the signal of estimate coefficients uncover the effect on the change of Duration. It passes F test but the $R^{2}$ statistics is very small.
+
+We found that compared with non-veteran, those who are veteran usually stay less time at shelter; those who are older are more possible to stay longer; those who are homeless more than one year will be less possible to stay longer than those whose homeless time is less than 6 months. We also find the 
 
 
+## Problem 3: Check if there's a trend regarding months
 
+We want to explore if there's some association regarding the months;
+
+```{r month}
+client.entry%>%group_by(`Entry Month`)%>%summarise(times = n())%>%ggplot(aes(x=`Entry Month`,y = times))+geom_line(size=1.5)+labs(title = "Visit frequency changed by months")+theme_bw()+scale_x_continuous(breaks = seq(0,12,3))
+
+client.entry%>%drop_na(income_month)%>%group_by(`Entry Month`)%>%summarise(money = mean(income_month))%>%
+  ggplot(aes(x=`Entry Month`,y = money))+geom_line()+ 
+  labs(x="month",y="income",title = "Income vs entry month: Any trend?")+scale_x_continuous(breaks = seq(0,12,3))+theme_bw()
+
+dat1 = as.data.frame(table(client.entry%>%select(`Entry Month`,homelesstime)))
+ggplot(dat1,aes(x=Entry.Month,y=Freq))+geom_line(aes(group=homelesstime,col = homelesstime),size=1)
+chisq.test(table(client.entry%>%select(`Entry Month`,homelesstime)))
+
+```
+
+Actually we found not very obvious correspondance, it seems that when entering the winter, near November less people will select to go to the shelter, and the monthly income of those who go to the shelter is a bit lower. That's an interesting disovery, and after the chi square test we reject the null hypothesis, which means homeless time also influence the month of entry.
+
+## Conclusions
+
+We've done lots of work, tried to explore the different dimensions of data and looked for the link with staying duration.
+The main composition of the shelter is black people, Non-hispanic, and male. Most of them are old people, and we found "Entry Age,gender,veteran status, ethnicity, disability count and homeless time" these variables are significant in linear model. And we indeed got some change before and after the entry of shelter. 
+Also based on the result in python, 50% people didn't complete the program when they select to leave. I think our next step analysis is to figure out what leads to their departure, is it correlated to any other feature?

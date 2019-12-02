@@ -19,10 +19,10 @@ client.entry%>%filter(race %in% c("Black or African American (HUD)","White (HUD)
   ggplot(aes(x=income_month,fill = `Client Gender`))+geom_histogram(bins = 30)+facet_wrap(~race)+theme_bw()+labs(x = "income",y = "Frequency",title = "Income Distribution")
 ggsave("income distribution by race.png",width = 6,height = 4)
 
-client.entry%>%drop_na(income_month)%>%ggplot(aes(y=income_month, x = `Client Gender`))+geom_boxplot()
+client.entry%>%drop_na(income_month)%>%ggplot(aes(y=income_month, x = `Client Gender`,fill = `Client Gender`))+geom_boxplot()
 client.entry%>%filter(race %in% c("Black or African American (HUD)","White (HUD)","American Indian or Alaska Native (HUD)"))%>%drop_na(income_month)%>%ggplot(aes(x=race,y=income_month,fill=race))+geom_boxplot()
 # For race variable, we could divide them into two main category and merge others as NA.
-
+client.entry%>%drop_na(homelesstime)%>%ggplot(aes(y=income_month, x = homelesstime,fill = homelesstime))+geom_boxplot()
 
 #Draw the plot of amount of health insurance 
 client.entry%>%drop_na(healins)%>%filter(healins < 50)%>%ggplot(aes(x = `Client Gender`,y=healins))+geom_boxplot()
@@ -31,6 +31,8 @@ client.entry%>%drop_na(healins)%>%ggplot(aes(x=healins))+geom_histogram(bins = 1
 # Draw the distribution of age 
 client.entry%>%drop_na(Entry_age)%>%ggplot(aes(x=Entry_age))+geom_bar()+labs(title = "Age Distribution")+theme_grey()
 
+# Draw the distribution 
+client.entry%>%drop_na(homelesstime) %>% ggplot(aes(x=homelesstime))+geom_bar()
 #Conclude that most clients who entered shelter are around 50 years old.
 
 
