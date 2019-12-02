@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[2]:
 
 
 import pandas as pd
@@ -26,7 +26,7 @@ health_entry = pd.read_csv('../data/HEALTH_INS_ENTRY_191102.tsv',sep ='\t',heade
 health_exit = pd.read_csv('../data/HEALTH_INS_EXIT_191102.tsv',sep ='\t',header = 0)
 
 
-# In[5]:
+# In[4]:
 
 
 ### At first we want to explore the correlation of staying time and some characteristics at entry, so we will create two datasets, one is for
@@ -54,7 +54,7 @@ plt.savefig("../result/Entry_month.png")
 plt.show()
 
 
-# In[6]:
+# In[5]:
 
 
 #See the visiting frequency of year
@@ -63,7 +63,7 @@ plt.savefig("../result/Entry_year.png")
 plt.show()
 
 
-# In[19]:
+# In[6]:
 
 
 exitdata.groupby("Exit Year").count()["Client ID"].plot(kind = "bar",x = "Exit Year")
@@ -71,22 +71,17 @@ plt.savefig("../result/Exit_year.png")
 plt.show()
 
 
-# In[7]:
+# In[31]:
 
 
-visit = pd.DataFrame(entrydata.groupby("Client ID")["EE UID"].count()).rename(columns = {"EE UID":"Visit_time"})
-entrydata1 = pd.merge(entrydata,visit,on="Client ID",how = "left")
-entrydata1.groupby("Client ID").mean()["Visit_time"].sort_values(ascending = False)
+visit = pd.DataFrame(entrydata.groupby("Client ID")["EE UID"].count()).rename(columns = {"EE UID":"Visit_time"}).reset_index()
+entrydata1 = pd.merge(entrydata,visit,on=['Client ID'],how = "left")
+entrydata1.groupby('Client ID').mean()["Visit_time"].sort_values(ascending = False)
 # The most frequent one comes for 37 times
+visit
 
 
-# In[8]:
-
-
-exitdata.head()
-
-
-# In[9]:
+# In[19]:
 
 
 # Notice that we could see what kind of reasons make people leave the shelter
@@ -101,8 +96,8 @@ entry_exit["Reason for Leaving"].value_counts().apply(lambda x:x/2459)
 # We regard the Yes in "Disability Determination" as the variables we want to calculate
 disen = disa_entry[['EE UID','Client ID']]
 disex = disa_exit[['EE UID','Client ID']]
-tp = pd.DataFrame(disa_entry.groupby("Client ID")["Disability Determination (Entry)"].apply(lambda x:(x=="Yes (HUD)").sum())).rename(columns = {"Disability Determination (Entry)":"Disability count"})
-tq = pd.DataFrame(disa_exit.groupby("Client ID")["Disability Determination (Exit)"].apply(lambda x:(x=="Yes (HUD)").sum())).rename(columns = {"Disability Determination (Exit)":"Disability count"})
+tp = pd.DataFrame(disa_entry.groupby("Client ID")["Disability Determination (Entry)"].apply(lambda x:(x=="Yes (HUD)").sum())).rename(columns = {"Disability Determination (Entry)":"Disability count"}).reset_index()
+tq = pd.DataFrame(disa_exit.groupby("Client ID")["Disability Determination (Exit)"].apply(lambda x:(x=="Yes (HUD)").sum())).rename(columns = {"Disability Determination (Exit)":"Disability count"}).reset_index()
 
 disen = pd.merge(disen,tp,on="Client ID",how = "left")
 disex = pd.merge(disex,tq,on="Client ID",how = "left")
@@ -122,7 +117,7 @@ disa_entry["Disability Type (Entry)"].value_counts()
 
 # Deal with demographic data
 # Since we have known the staying time length, we drop the "Client Age at Exit" variables, and some other ID variables.
-client_data = pd.DataFrame(client.drop(columns = ["EE Provider ID","Client Unique ID","Client Age at Exit"],inplace = False))
+client_data = pd.DataFrame(client.drop(["EE Provider ID","Client Unique ID","Client Age at Exit"],axis = 1,inplace = False))
 client_data["Client Veteran Status"].replace('Data not collected (HUD)',np.nan,inplace=True)
 client_data["Client Ethnicity"].replace(["Data not collected (HUD)","Client doesn't know (HUD)","Client refused (HUD)"],np.nan,inplace = True)
 client.sort_values(by = "Client Age at Entry",ascending = True).reset_index(drop=True).head()
@@ -151,8 +146,8 @@ client_ee.head()
 
 #Add the information about monthly income amount
 #Regard all the na in monthly amount as zero
-ie = pd.DataFrame(income_entry.groupby("Client ID")["Monthly Amount (Entry)"].sum()).fillna(0)
-ie1 = pd.DataFrame(income_exit.groupby("Client ID")["Monthly Amount (Exit)"].sum()).fillna(0)
+ie = pd.DataFrame(income_entry.groupby("Client ID")["Monthly Amount (Entry)"].sum()).fillna(0).reset_index()
+ie1 = pd.DataFrame(income_exit.groupby("Client ID")["Monthly Amount (Exit)"].sum()).fillna(0).reset_index()
 
 # We checked the different income source, and compare the entry one and exit one
 s1 = income_entry["Income Source (Entry)"].value_counts()
@@ -167,9 +162,9 @@ pd.DataFrame({'Entry':s1,'Exit':s2})
 
 
 #Add the information about health insurance coverage at entry
-h1 = health_entry[["Client ID","Covered (Entry)"]].groupby("Client ID")["Covered (Entry)"].apply(lambda x:(x == 'Yes').sum())
+h1 = health_entry[["Client ID","Covered (Entry)"]].groupby("Client ID")["Covered (Entry)"].apply(lambda x:(x == 'Yes').sum()).reset_index()
 h1 = pd.DataFrame(h1)
-h2 = health_exit[["Client ID","Covered (Exit)"]].groupby("Client ID")["Covered (Exit)"].apply(lambda x:(x == 'Yes').sum())
+h2 = health_exit[["Client ID","Covered (Exit)"]].groupby("Client ID")["Covered (Exit)"].apply(lambda x:(x == 'Yes').sum()).reset_index()
 h2 = pd.DataFrame(h2)
 h2
 
@@ -191,11 +186,11 @@ client_total.head()
 
 client_total.groupby("race").count()
 noncash_entry=pd.read_csv('../data/NONCASH_ENTRY_191102.tsv',sep="\t",header = 0)
-nc_entry = pd.DataFrame(noncash_entry[["Client ID","Receiving Benefit (Entry)"]].groupby("Client ID")["Receiving Benefit (Entry)"].apply(lambda x:(x == 'Yes').sum()))
+nc_entry = pd.DataFrame(noncash_entry[["Client ID","Receiving Benefit (Entry)"]].groupby("Client ID")["Receiving Benefit (Entry)"].apply(lambda x:(x == 'Yes').sum())).reset_index()
 client_total_entry = pd.merge(client_total,nc_entry,on="Client ID",how = "left")
 
 noncash_exit=pd.read_csv('../data/NONCASH_EXIT_191102.tsv',sep="\t",header = 0)
-nc_exit = pd.DataFrame(noncash_exit[["Client ID","Receiving Benefit (Exit)"]].groupby("Client ID")["Receiving Benefit (Exit)"].apply(lambda x:(x == 'Yes').sum()))
+nc_exit = pd.DataFrame(noncash_exit[["Client ID","Receiving Benefit (Exit)"]].groupby("Client ID")["Receiving Benefit (Exit)"].apply(lambda x:(x == 'Yes').sum())).reset_index()
 client_total_exit = client_total_exit.merge(nc_exit,on="Client ID",how = "left")
 
 
@@ -229,7 +224,7 @@ client_total_exit.to_csv("../data/client_total_exit.tsv",sep="\t")
 # In[21]:
 
 
-client_demographic = client_total_entry.drop(columns=["EE UID","Entry_age","Entry Date","Exit Date","Entry Month","Entry Year","Time Difference"]).drop_duplicates()
+client_demographic = client_total_entry.drop(["EE UID","Entry_age","Entry Date","Exit Date","Entry Month","Entry Year","Time Difference"],axis=1).drop_duplicates()
 
 client_demographic.to_csv("../data/client_demographic.tsv",sep="\t")
 

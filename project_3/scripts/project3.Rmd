@@ -6,8 +6,6 @@ output: html_document
 
 ```{r setup, include=FALSE}
 library(tidyverse)
-library(car)
-library(corrplot)
 client.entry = read_tsv("../data/client_total_entry.tsv")
 client.entry = client.entry%>%select(-X1)
 client.exit = read_tsv("../data/client_total_exit.tsv")
@@ -140,7 +138,7 @@ cor.test(client.entry.new$duration.ave,client.entry.new$`Disability count`)
 cor.test(client.entry$`Time Difference`,client.entry$Entry_age)
 cordat = as.data.frame(client.entry%>%select(`Time Difference`,income_month,healins,Entry_age,`Disability count`,`Receiving Benefit (Entry)`)%>%drop_na(`Time Difference`,income_month,healins,Entry_age,`Disability count`,`Receiving Benefit (Entry)`))
 A = cor(cordat) 
-corrplot(A,addCoef.col="grey")
+A
 ```
 
 After conducting the correlation test and the correlation plot, we found that the time difference has little correlation with these continuous variable, but it actually shows the trend. 
