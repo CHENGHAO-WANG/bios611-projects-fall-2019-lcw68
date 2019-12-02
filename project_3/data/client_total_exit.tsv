@@ -270,7 +270,7 @@
 268	632129	206814	51.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-02-05	2015-03-01	3.0	2015.0	24.0	2.0	1590.0	4.0	2.0	
 269	632131	392388	27.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-02-05	2015-02-06	2.0	2015.0	1.0	1.0				>12 months
 270	632128	174808	58.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-02-05	2015-02-07	2.0	2015.0	2.0	5.0	0.0	0.0	0.0	
-271	632127	392389	22.0	Female	Black or African American (HUD)	Data not collected (HUD)	No (HUD)	2015-02-05	2015-02-07	2.0	2015.0	2.0	4.0	1260.0	2.0	2.0	
+271	632127	392389	22.0	Female	Black or African American (HUD)		No (HUD)	2015-02-05	2015-02-07	2.0	2015.0	2.0	4.0	1260.0	2.0	2.0	
 272	632126	88229	50.0	Female	White (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-02-05	2015-02-07	2.0	2015.0	2.0	2.0	740.0	1.0		
 273	636482	10107	59.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-02-06	2015-04-10	4.0	2015.0	63.0	9.0	480.0	0.0	0.0	
 274	632132	392039	56.0	Male	American Indian or Alaska Native (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-02-06	2015-03-04	3.0	2015.0	26.0				3.0	7-12 months
@@ -304,7 +304,7 @@
 302	635375	157529	40.0	Female	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-02-15	2015-02-16	2.0	2015.0	1.0	0.0	0.0	0.0		
 303	636893	388134	51.0	Female	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-02-16	2015-02-28	2.0	2015.0	12.0	0.0	0.0	0.0	0.0	
 304	636891	376327	55.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-02-16	2015-02-28	2.0	2015.0	12.0	3.0	0.0	0.0	0.0	>12 months
-305	639600	367431	48.0	Female	Black or African American (HUD)	Client doesn't know (HUD)	No (HUD)	2015-02-16	2015-02-24	2.0	2015.0	8.0	1.0			0.0	
+305	639600	367431	48.0	Female	Black or African American (HUD)		No (HUD)	2015-02-16	2015-02-24	2.0	2015.0	8.0	1.0			0.0	
 306	636381	393036	63.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	Yes (HUD)	2015-02-16	2015-03-05	3.0	2015.0	17.0	4.0	9400.0	2.0	0.0	
 307	636380	270976	49.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-02-16	2015-03-03	3.0	2015.0	15.0	3.0	2199.0	3.0		
 308	636379	342328	31.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-02-16	2015-02-17	2.0	2015.0	1.0				1.0	>12 months
@@ -371,7 +371,7 @@
 369	642850	206814	51.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-03-04	2015-03-08	3.0	2015.0	4.0	2.0	1590.0	4.0	2.0	
 370	645435	374526	45.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	Yes (HUD)	2015-03-04	2015-03-13	3.0	2015.0	9.0		2400.0		2.0	
 371	645431	379956	50.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-03-04	2015-04-01	4.0	2015.0	28.0	0.0	0.0	0.0	0.0	>12 months
-372	644984	392389	22.0	Female	Black or African American (HUD)	Data not collected (HUD)	No (HUD)	2015-03-04	2015-03-05	3.0	2015.0	1.0	4.0	1260.0	2.0	2.0	
+372	644984	392389	22.0	Female	Black or African American (HUD)		No (HUD)	2015-03-04	2015-03-05	3.0	2015.0	1.0	4.0	1260.0	2.0	2.0	
 373	643539	351045	54.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-03-05	2015-04-22	4.0	2015.0	48.0	21.0	4725.0	7.0	2.0	
 374	643552	393036	63.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	Yes (HUD)	2015-03-05	2015-06-15	6.0	2015.0	102.0	4.0	9400.0	2.0	0.0	
 375	643542	387174	18.0	Male	White (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-03-05	2015-05-30	5.0	2015.0	86.0	2.0		1.0	1.0	
@@ -428,7 +428,7 @@
 426	647424	379113	47.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-03-15	2015-03-27	3.0	2015.0	12.0	26.0	12599.0	13.0	0.0	
 427	651486	349449	51.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-03-16	2015-04-04	4.0	2015.0	19.0		9000.0	0.0	0.0	
 428	647912	347855	25.0	Female	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-03-16	2015-03-21	3.0	2015.0	5.0	7.0	0.0	0.0	0.0	
-429	647917	395113	40.0	Male		Client refused (HUD)	No (HUD)	2015-03-16	2015-04-04	4.0	2015.0	19.0	9.0				
+429	647917	395113	40.0	Male			No (HUD)	2015-03-16	2015-04-04	4.0	2015.0	19.0	9.0				
 430	647915	130576	47.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-03-16	2015-03-23	3.0	2015.0	7.0		1000.0			< 6 months
 431	651487	194903	32.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-03-16	2015-04-01	4.0	2015.0	16.0		1620.0	0.0	1.0	
 432	647911	207787	37.0	Female	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-03-16	2015-03-25	3.0	2015.0	9.0	3.0	2220.0	3.0	3.0	>12 months
@@ -547,7 +547,7 @@
 545	658451	397785	57.0	Male	White (HUD)	Non-Hispanic/Non-Latino (HUD)	Yes (HUD)	2015-04-13	2015-04-23	4.0	2015.0	10.0	3.0		3.0	3.0	>12 months
 546	657047	290184	29.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-04-13	2015-04-24	4.0	2015.0	11.0	1.0			1.0	>12 months
 547	657045	347855	25.0	Female	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-04-13	2015-04-15	4.0	2015.0	2.0	7.0	0.0	0.0	0.0	
-548	657049	222184	26.0	Male	White (HUD)	Client doesn't know (HUD)		2015-04-13	2015-04-20	4.0	2015.0	7.0					
+548	657049	222184	26.0	Male	White (HUD)			2015-04-13	2015-04-20	4.0	2015.0	7.0					
 549	657044	397313	40.0	Female	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-04-13	2015-05-01	5.0	2015.0	18.0	0.0	5400.0	24.0	0.0	7-12 months
 550	658802	383781	35.0	Female	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-04-13	2015-04-21	4.0	2015.0	8.0	10.0	3165.0	10.0	0.0	< 6 months
 551	657043	322709	23.0	Female	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-04-13	2015-05-01	5.0	2015.0	18.0	6.0	2199.0	5.0	0.0	
@@ -562,7 +562,7 @@
 560	657409	397427	60.0	Male	White (HUD)	Non-Hispanic/Non-Latino (HUD)	Yes (HUD)	2015-04-14	2015-04-15	4.0	2015.0	1.0	6.0	0.0	0.0	0.0	
 561	657408	195629	57.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-04-14	2015-04-28	4.0	2015.0	14.0				2.0	
 562	657406	285041	23.0	Female	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-04-14	2015-04-15	4.0	2015.0	1.0		710.0	1.0		>12 months
-563	657407	228845	43.0	Female	Black or African American (HUD)	Client doesn't know (HUD)	No (HUD)	2015-04-14	2015-04-26	4.0	2015.0	12.0	3.0			0.0	>12 months
+563	657407	228845	43.0	Female	Black or African American (HUD)		No (HUD)	2015-04-14	2015-04-26	4.0	2015.0	12.0	3.0			0.0	>12 months
 564	661588	393541	23.0	Male	White (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-04-15	2015-05-29	5.0	2015.0	44.0	0.0	800.0	0.0	0.0	
 565	657739	397538	45.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-04-15	2015-05-01	5.0	2015.0	16.0	0.0	4320.0	0.0	3.0	>12 months
 566	657740	361025	28.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	Yes (HUD)	2015-04-15	2015-05-05	5.0	2015.0	20.0	0.0	0.0	0.0	0.0	
@@ -587,10 +587,10 @@
 585	661589	285066	51.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-04-20	2015-06-23	6.0	2015.0	64.0	6.0	2163.0	3.0	0.0	>12 months
 586	658700	233609	48.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-04-20	2015-04-21	4.0	2015.0	1.0	3.0		0.0	0.0	
 587	658801	397941	60.0	Female	White (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-04-20	2015-04-26	4.0	2015.0	6.0	8.0	0.0	0.0	4.0	< 6 months
-588	658750	397879	52.0	Male	White (HUD)	Data not collected (HUD)		2015-04-20	2015-05-11	5.0	2015.0	21.0	3.0				>12 months
+588	658750	397879	52.0	Male	White (HUD)			2015-04-20	2015-05-11	5.0	2015.0	21.0	3.0				>12 months
 589	658968	208663	24.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-04-21	2015-05-05	5.0	2015.0	14.0	0.0	0.0	0.0	0.0	
 590	661213	383781	35.0	Female	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-04-21	2015-05-29	5.0	2015.0	38.0	10.0	3165.0	10.0	0.0	< 6 months
-591	659468	395113	41.0	Male		Client refused (HUD)	No (HUD)	2015-04-22	2015-05-01	5.0	2015.0	9.0	9.0				
+591	659468	395113	41.0	Male			No (HUD)	2015-04-22	2015-05-01	5.0	2015.0	9.0	9.0				
 592	659467	378313	49.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-04-22	2015-04-29	4.0	2015.0	7.0		0.0	0.0	0.0	>12 months
 593	659469	395112	30.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-04-23	2015-05-07	5.0	2015.0	14.0			3.0	3.0	
 594	659924	397785	57.0	Male	White (HUD)	Non-Hispanic/Non-Latino (HUD)	Yes (HUD)	2015-04-24	2015-05-01	5.0	2015.0	7.0	3.0		3.0	3.0	>12 months
@@ -610,12 +610,12 @@
 608	660545	287399	43.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-04-28	2015-04-29	4.0	2015.0	1.0	36.0	8304.0	12.0	12.0	
 609	660634	394826	21.0	Male	White (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-04-29	2015-08-14	8.0	2015.0	107.0	3.0	1400.0	0.0	0.0	< 6 months
 610	660853	355355	22.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-04-29	2015-05-02	5.0	2015.0	3.0		2775.0	0.0	3.0	
-611	660854	228845	43.0	Female	Black or African American (HUD)	Client doesn't know (HUD)	No (HUD)	2015-04-29	2015-05-15	5.0	2015.0	16.0	3.0			0.0	>12 months
+611	660854	228845	43.0	Female	Black or African American (HUD)		No (HUD)	2015-04-29	2015-05-15	5.0	2015.0	16.0	3.0			0.0	>12 months
 612	661591	287399	43.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-04-29	2015-05-01	5.0	2015.0	2.0	36.0	8304.0	12.0	12.0	
 613	661105	296284	28.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-04-30	2015-05-05	5.0	2015.0	5.0					
 614	661249	397203	29.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-05-01	2015-05-29	5.0	2015.0	28.0	0.0	0.0		0.0	>12 months
 615	661253	397312	42.0	Male	White (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-05-01	2015-08-14	8.0	2015.0	105.0	6.0	0.0	0.0	0.0	< 6 months
-616	661251	395113	41.0	Male		Client refused (HUD)	No (HUD)	2015-05-01	2015-07-01	7.0	2015.0	61.0	9.0				
+616	661251	395113	41.0	Male			No (HUD)	2015-05-01	2015-07-01	7.0	2015.0	61.0	9.0				
 617	661248	394031	40.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-05-01	2015-08-14	8.0	2015.0	105.0	0.0	5360.0	0.0	0.0	
 618	661250	262238	19.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-05-01	2015-08-14	8.0	2015.0	105.0	0.0	5600.0	0.0	0.0	
 619	661247	314853	54.0	Female	White (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-05-01	2015-08-14	8.0	2015.0	105.0	0.0	5484.0	0.0	4.0	
@@ -669,7 +669,7 @@
 667	663780	370346	53.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-05-12	2015-06-09	6.0	2015.0	28.0	4.0	6400.0	0.0	4.0	
 668	663781	381739	24.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-05-12	2015-05-13	5.0	2015.0	1.0	0.0	1360.0	5.0	0.0	
 669	663783	159852	56.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-05-12	2015-05-17	5.0	2015.0	5.0	5.0	771.0	1.0	1.0	>12 months
-670	663786	399670	42.0	Male	Black or African American (HUD)	Data not collected (HUD)	No (HUD)	2015-05-12	2015-05-13	5.0	2015.0	1.0					
+670	663786	399670	42.0	Male	Black or African American (HUD)		No (HUD)	2015-05-12	2015-05-13	5.0	2015.0	1.0					
 671	668873	370291	68.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	Yes (HUD)	2015-05-12	2015-06-10	6.0	2015.0	29.0	2.0	1876.0	2.0		
 672	668916	219392	29.0	Male	White (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-05-12	2015-08-14	8.0	2015.0	94.0	0.0	1440.0	0.0	4.0	>12 months
 673	678119	399904	57.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-05-13	2015-07-21	7.0	2015.0	69.0	0.0	4500.0	3.0	0.0	
@@ -682,9 +682,9 @@
 680	667162	320781	40.0	Male	White (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-05-15	2015-06-08	6.0	2015.0	24.0	37.0	33300.0	111.0	0.0	
 681	664694	8104	52.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	Yes (HUD)	2015-05-16	2015-05-22	5.0	2015.0	6.0	12.0	0.0	1.0	1.0	
 682	667594	392386	61.0	Male	American Indian or Alaska Native (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-05-16	2015-06-08	6.0	2015.0	23.0	0.0	0.0	0.0	0.0	
-683	664918	400077	41.0	Female	White (HUD)	Data not collected (HUD)	No (HUD)	2015-05-18	2015-07-06	7.0	2015.0	49.0	6.0	0.0	0.0	0.0	
+683	664918	400077	41.0	Female	White (HUD)		No (HUD)	2015-05-18	2015-07-06	7.0	2015.0	49.0	6.0	0.0	0.0	0.0	
 684	664919	400076	47.0	Female	White (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-05-18	2015-05-19	5.0	2015.0	1.0	6.0	1500.0	4.0		
-685	666520	397879	53.0	Male	White (HUD)	Data not collected (HUD)		2015-05-18	2015-06-09	6.0	2015.0	22.0	3.0				>12 months
+685	666520	397879	53.0	Male	White (HUD)			2015-05-18	2015-06-09	6.0	2015.0	22.0	3.0				>12 months
 686	664928	333120	36.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-05-18	2015-06-09	6.0	2015.0	22.0	9.0	6318.0	9.0	1.0	< 6 months
 687	664927	195629	57.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-05-18	2015-05-23	5.0	2015.0	5.0				2.0	
 688	666528	400076	47.0	Female	White (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-05-18	2015-05-27	5.0	2015.0	9.0	6.0	1500.0	4.0		
@@ -700,7 +700,7 @@
 698	665807	400414	54.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-05-21	2015-05-24	5.0	2015.0	3.0	14.0	0.0	0.0	0.0	
 699	665808	197232	42.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-05-21	2015-05-23	5.0	2015.0	2.0	0.0	0.0	0.0	7.0	
 700	666516	400528	20.0	Female	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-05-22	2015-05-29	5.0	2015.0	7.0	0.0	0.0	7.0	5.0	>12 months
-701	666517	177671	63.0	Male	Black or African American (HUD)	Client refused (HUD)	Yes (HUD)	2015-05-23	2015-06-02	6.0	2015.0	10.0	1.0	600.0		1.0	
+701	666517	177671	63.0	Male	Black or African American (HUD)		Yes (HUD)	2015-05-23	2015-06-02	6.0	2015.0	10.0	1.0	600.0		1.0	
 702	666519	8104	52.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	Yes (HUD)	2015-05-24	2015-06-02	6.0	2015.0	9.0	12.0	0.0	1.0	1.0	
 703	666821	382886	53.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	Yes (HUD)	2015-05-25	2015-06-30	6.0	2015.0	36.0	2.0	260.0	2.0	2.0	
 704	666822	394827	53.0	Female	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-05-25	2015-05-26	5.0	2015.0	1.0	0.0	0.0	0.0	0.0	
@@ -725,8 +725,8 @@
 723	670355	401629	54.0	Female	White (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-06-02	2015-06-04	6.0	2015.0	2.0	1.0	751.0	2.0		
 724	669602	394827	53.0	Female	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-06-02	2015-06-04	6.0	2015.0	2.0	0.0	0.0	0.0	0.0	
 725	669604	399903	19.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-06-02	2015-07-03	7.0	2015.0	31.0	2.0	1980.0	2.0	2.0	
-726	669605	401496	35.0	Male	Black or African American (HUD)	Data not collected (HUD)	No (HUD)	2015-06-02	2015-06-10	6.0	2015.0	8.0					
-727	669606	401497	51.0	Male	Black or African American (HUD)	Data not collected (HUD)	No (HUD)	2015-06-02	2015-06-14	6.0	2015.0	12.0	5.0	1466.0	2.0	2.0	
+726	669605	401496	35.0	Male	Black or African American (HUD)		No (HUD)	2015-06-02	2015-06-10	6.0	2015.0	8.0					
+727	669606	401497	51.0	Male	Black or African American (HUD)		No (HUD)	2015-06-02	2015-06-14	6.0	2015.0	12.0	5.0	1466.0	2.0	2.0	
 728	669610	355355	22.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-06-03	2015-06-21	6.0	2015.0	18.0		2775.0	0.0	3.0	
 729	669611	367659	46.0	Female	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-06-03	2015-07-06	7.0	2015.0	33.0	0.0	2400.0	0.0	0.0	
 730	669609	401495	49.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	Yes (HUD)	2015-06-03	2015-07-10	7.0	2015.0	37.0	0.0	3000.0	2.0	0.0	
@@ -760,7 +760,7 @@
 758	670061	361597	47.0	Male	White (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-06-09	2015-08-14	8.0	2015.0	66.0	9.0	0.0	0.0	3.0	>12 months
 759	670060	216983	50.0	Female	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-06-09	2015-08-14	8.0	2015.0	66.0	4.0	2000.0	0.0	0.0	
 760	680107	214022	55.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-06-09	2015-08-14	8.0	2015.0	66.0	0.0	0.0	0.0	0.0	
-761	670064	397879	53.0	Male	White (HUD)	Data not collected (HUD)		2015-06-09	2015-07-08	7.0	2015.0	29.0	3.0				>12 months
+761	670064	397879	53.0	Male	White (HUD)			2015-06-09	2015-07-08	7.0	2015.0	29.0	3.0				>12 months
 762	670880	401999	46.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-06-09	2015-06-19	6.0	2015.0	10.0	0.0	0.0	0.0	0.0	
 763	670057	399342	38.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-06-09	2015-07-03	7.0	2015.0	24.0	3.0	5280.0	0.0	0.0	
 764	670401	363382	29.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-06-09	2015-08-14	8.0	2015.0	66.0	11.0	7200.0	0.0	0.0	
@@ -769,7 +769,7 @@
 767	672595	402672					No (HUD)	2015-06-10	2015-06-19	6.0	2015.0	9.0					
 768	681545	330427	68.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-06-11	2015-08-14	8.0	2015.0	64.0	10.0	8210.0	0.0	5.0	
 769	670879	180697	44.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-06-11	2015-06-15	6.0	2015.0	4.0	0.0	0.0	0.0	0.0	
-770	671323	228845	43.0	Female	Black or African American (HUD)	Client doesn't know (HUD)	No (HUD)	2015-06-12	2015-06-18	6.0	2015.0	6.0	3.0			0.0	>12 months
+770	671323	228845	43.0	Female	Black or African American (HUD)		No (HUD)	2015-06-12	2015-06-18	6.0	2015.0	6.0	3.0			0.0	>12 months
 771	671325	130335	48.0	Female	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-06-13	2015-07-10	7.0	2015.0	27.0	12.0	4398.0	6.0	0.0	>12 months
 772	673643	403049	63.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-06-14	2015-07-21	7.0	2015.0	37.0					
 773	671326	390302	46.0	Female	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-06-14	2015-07-23	7.0	2015.0	39.0	18.0	0.0	0.0	6.0	
@@ -852,7 +852,7 @@
 850	676331	401494	19.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-07-06	2015-08-10	8.0	2015.0	35.0	2.0	976.0	2.0	0.0	
 851	676332	401763	53.0	Female	White (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-07-06	2015-08-14	8.0	2015.0	39.0	0.0	0.0	0.0	0.0	
 852	676333	224787	65.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-07-06	2015-08-14	8.0	2015.0	39.0	5.0	0.0	10.0	0.0	
-853	676334	400077	41.0	Female	White (HUD)	Data not collected (HUD)	No (HUD)	2015-07-06	2015-08-14	8.0	2015.0	39.0	6.0	0.0	0.0	0.0	
+853	676334	400077	41.0	Female	White (HUD)		No (HUD)	2015-07-06	2015-08-14	8.0	2015.0	39.0	6.0	0.0	0.0	0.0	
 854	676326	401978	54.0	Male	White (HUD)	Non-Hispanic/Non-Latino (HUD)	Yes (HUD)	2015-07-06	2015-07-24	7.0	2015.0	18.0	2.0	6400.0	4.0	0.0	
 855	676324	402256	37.0	Male	White (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-07-06	2015-07-11	7.0	2015.0	5.0	14.0	3360.0	0.0	0.0	
 856	676540	294505	47.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-07-06	2015-07-11	7.0	2015.0	5.0	3.0				
@@ -1092,7 +1092,7 @@
 1090	688370	401763	53.0	Female	White (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-08-15	2015-08-20	8.0	2015.0	5.0	0.0	0.0	0.0	0.0	
 1091	688829	408494	31.0	Female	White (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-08-15	2015-08-25	8.0	2015.0	10.0	1.0	0.0	0.0	0.0	
 1092	688371	314853	54.0	Female	White (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-08-15	2015-08-25	8.0	2015.0	10.0	0.0	5484.0	0.0	4.0	
-1093	688372	400077	42.0	Female	White (HUD)	Data not collected (HUD)	No (HUD)	2015-08-15	2015-08-29	8.0	2015.0	14.0	6.0	0.0	0.0	0.0	< 6 months
+1093	688372	400077	42.0	Female	White (HUD)		No (HUD)	2015-08-15	2015-08-29	8.0	2015.0	14.0	6.0	0.0	0.0	0.0	< 6 months
 1094	688378	386115	52.0	Female	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-08-15	2015-10-05	10.0	2015.0	51.0	3.0	0.0	0.0	3.0	
 1095	688395	399904	58.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-08-15	2016-06-10	6.0	2016.0	300.0	0.0	4500.0	3.0	0.0	
 1096	688397	402258	40.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-08-15	2015-08-18	8.0	2015.0	3.0	23.0	770.0	11.0	1.0	
@@ -1127,7 +1127,7 @@
 1125	691023	160586	41.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-08-24	2016-03-04	3.0	2016.0	193.0	0.0	1600.0	0.0	1.0	>12 months
 1126	691022	157088	56.0	Female	White (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-08-24	2015-10-31	10.0	2015.0	68.0	0.0	700.0	0.0	3.0	>12 months
 1127	689733	280121	53.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-08-24	2015-09-22	9.0	2015.0	29.0	18.0	13860.0	17.0	0.0	>12 months
-1128	690938	3953	64.0	Male	Black or African American (HUD)	Client refused (HUD)	No (HUD)	2015-08-24	2015-09-01	9.0	2015.0	8.0	1.0	800.0	0.0	0.0	
+1128	690938	3953	64.0	Male	Black or African American (HUD)		No (HUD)	2015-08-24	2015-09-01	9.0	2015.0	8.0	1.0	800.0	0.0	0.0	
 1129	690939	409686	77.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-08-24	2015-09-04	9.0	2015.0	11.0	1.0	0.0	1.0	0.0	
 1130	689730	373731	27.0	Female	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-08-24	2015-08-27	8.0	2015.0	3.0	0.0	1200.0	0.0	1.0	
 1131	690108	409450	27.0	Male	White (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-08-24	2015-08-26	8.0	2015.0	2.0	0.0	0.0	0.0	0.0	
@@ -1287,7 +1287,7 @@
 1285	701100	183882	45.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-10-06	2015-10-14	10.0	2015.0	8.0	0.0	0.0	0.0	2.0	>12 months
 1286	701101	412723	26.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-10-06	2015-10-07	10.0	2015.0	1.0	0.0	0.0	0.0	0.0	>12 months
 1287	701102	412722	43.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	Yes (HUD)	2015-10-06	2015-10-13	10.0	2015.0	7.0	0.0	0.0	1.0	0.0	>12 months
-1288	703610	401497	52.0	Male	Black or African American (HUD)	Data not collected (HUD)	No (HUD)	2015-10-06	2015-10-17	10.0	2015.0	11.0	5.0	1466.0	2.0	2.0	< 6 months
+1288	703610	401497	52.0	Male	Black or African American (HUD)		No (HUD)	2015-10-06	2015-10-17	10.0	2015.0	11.0	5.0	1466.0	2.0	2.0	< 6 months
 1289	701099	412724	50.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-10-06	2015-11-29	11.0	2015.0	54.0	1.0	733.0	1.0	0.0	>12 months
 1290	701405	2416	48.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-10-07	2016-03-01	3.0	2016.0	146.0	0.0	2400.0	0.0	0.0	
 1291	701406	412856	56.0	Female	White (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2015-10-07	2016-05-24	5.0	2016.0	230.0	0.0	2400.0	0.0	2.0	< 6 months
@@ -2667,7 +2667,7 @@
 2665	793908	199776	56.0	Female	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2016-07-25	2016-11-15	11.0	2016.0	113.0	0.0	500.0	0.0	1.0	7-12 months
 2666	793910	266721	54.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2016-07-25	2016-09-01	9.0	2016.0	38.0	7.0	770.0	1.0	0.0	< 6 months
 2667	793901	317391	39.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2016-07-25	2016-08-01	8.0	2016.0	7.0	0.0	0.0	4.0	4.0	
-2668	793907	433563	25.0	Female	White (HUD)	Client refused (HUD)	No (HUD)	2016-07-25	2016-08-29	8.0	2016.0	35.0	4.0	270.0	2.0	2.0	7-12 months
+2668	793907	433563	25.0	Female	White (HUD)		No (HUD)	2016-07-25	2016-08-29	8.0	2016.0	35.0	4.0	270.0	2.0	2.0	7-12 months
 2669	793906	199315	56.0	Female	White (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2016-07-25	2016-08-04	8.0	2016.0	10.0	3.0	0.0	1.0	0.0	
 2670	793904	179965	49.0	Male	White (HUD)	Hispanic/Latino (HUD)	No (HUD)	2016-07-25	2016-08-12	8.0	2016.0	18.0	0.0	4800.0	0.0	0.0	>12 months
 2671	793903	100946	51.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2016-07-25	2016-08-12	8.0	2016.0	18.0	3.0	0.0	0.0	3.0	< 6 months
@@ -2857,7 +2857,7 @@
 2855	810812	233619	41.0	Male	White (HUD)	Hispanic/Latino (HUD)	No (HUD)	2016-09-19	2016-11-17	11.0	2016.0	59.0	3.0	7400.0	0.0	0.0	>12 months
 2856	810816	172866	31.0	Female	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2016-09-19	2016-09-27	9.0	2016.0	8.0	0.0	4800.0	0.0	8.0	< 6 months
 2857	810815	286400	23.0	Female	White (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2016-09-19	2016-09-25	9.0	2016.0	6.0	8.0	3158.0	4.0	0.0	>12 months
-2858	810814	433563	26.0	Female	White (HUD)	Client refused (HUD)	No (HUD)	2016-09-19	2016-09-25	9.0	2016.0	6.0	4.0	270.0	2.0	2.0	7-12 months
+2858	810814	433563	26.0	Female	White (HUD)		No (HUD)	2016-09-19	2016-09-25	9.0	2016.0	6.0	4.0	270.0	2.0	2.0	7-12 months
 2859	810813	157422	48.0	Male	White (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2016-09-19	2016-10-09	10.0	2016.0	20.0	8.0	0.0	0.0	8.0	>12 months
 2860	810811	438203	66.0	Male		Non-Hispanic/Non-Latino (HUD)	No (HUD)	2016-09-19	2017-01-24	1.0	2017.0	127.0	2.0	400.0	0.0	1.0	< 6 months
 2861	810810	368693	67.0	Male	White (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2016-09-19	2016-10-16	10.0	2016.0	27.0	0.0	21865.0	14.0	5.0	>12 months
@@ -2902,7 +2902,7 @@
 2900	814538	439545	65.0	Female	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2016-10-04	2016-11-20	11.0	2016.0	47.0	6.0	2337.0	6.0	3.0	< 6 months
 2901	815358	439857	39.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2016-10-04	2016-10-09	10.0	2016.0	5.0	1.0	753.0	2.0	0.0	>12 months
 2902	814895	418616	55.0	Female	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	Yes (HUD)	2016-10-05	2016-10-16	10.0	2016.0	11.0	4.0	2118.0	2.0	0.0	>12 months
-2903	816563	151291	65.0	Male	Black or African American (HUD)	Client doesn't know (HUD)	No (HUD)	2016-10-06	2016-12-18	12.0	2016.0	73.0	1.0	753.0	2.0	1.0	< 6 months
+2903	816563	151291	65.0	Male	Black or African American (HUD)		No (HUD)	2016-10-06	2016-12-18	12.0	2016.0	73.0	1.0	753.0	2.0	1.0	< 6 months
 2904	815219	439858	40.0	Male	White (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2016-10-06	2017-03-23	3.0	2017.0	168.0	2.0	0.0	1.0	0.0	< 6 months
 2905	815944	440128	20.0	Male	White (HUD)	Hispanic/Latino (HUD)	No (HUD)	2016-10-07	2016-10-09	10.0	2016.0	2.0	1.0	0.0	0.0	0.0	>12 months
 2906	816215	440230	43.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	Yes (HUD)	2016-10-07	2016-10-13	10.0	2016.0	6.0	2.0	790.0	1.0	1.0	7-12 months
@@ -2929,7 +2929,7 @@
 2927	817844	192056	55.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2016-10-14	2016-10-24	10.0	2016.0	10.0	1.0	733.0	1.0	1.0	
 2928	818412	441070	28.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2016-10-15	2016-12-01	12.0	2016.0	47.0	0.0	1000.0	0.0	0.0	< 6 months
 2929	817838	440820	32.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2016-10-16	2016-11-26	11.0	2016.0	41.0	2.0	1466.0	2.0	0.0	< 6 months
-2930	818204	357481	42.0	Female	Black or African American (HUD)	Client doesn't know (HUD)	No (HUD)	2016-10-17	2016-10-24	10.0	2016.0	7.0	2.0	1055.0	1.0	1.0	< 6 months
+2930	818204	357481	42.0	Female	Black or African American (HUD)		No (HUD)	2016-10-17	2016-10-24	10.0	2016.0	7.0	2.0	1055.0	1.0	1.0	< 6 months
 2931	818704	441221	61.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2016-10-17	2016-10-24	10.0	2016.0	7.0	6.0	7021.0	0.0	6.0	< 6 months
 2932	818414	431031	47.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2016-10-17	2016-12-01	12.0	2016.0	45.0	0.0	4800.0	0.0	0.0	< 6 months
 2933	818413	428703	20.0	Male	Black or African American (HUD)	Hispanic/Latino (HUD)	No (HUD)	2016-10-17	2016-10-24	10.0	2016.0	7.0	0.0	3000.0	3.0	0.0	< 6 months
@@ -3936,7 +3936,7 @@
 3934	926547	399892	60.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2017-11-03	2017-12-27	12.0	2017.0	54.0	4.0	3000.0	8.0	0.0	>12 months
 3935	930165	449148	47.0	Female	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2017-11-05	2018-01-29	1.0	2018.0	85.0	0.0	0.0	0.0	0.0	< 6 months
 3936	930240	2054	64.0	Female	White (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2017-11-06	2017-12-19	12.0	2017.0	43.0	66.0	33954.0	42.0	22.0	>12 months
-3937	926851	462685	56.0	Male		Client refused (HUD)	No (HUD)	2017-11-06	2017-12-27	12.0	2017.0	51.0	0.0	0.0	0.0	0.0	< 6 months
+3937	926851	462685	56.0	Male			No (HUD)	2017-11-06	2017-12-27	12.0	2017.0	51.0	0.0	0.0	0.0	0.0	< 6 months
 3938	928021	468178	45.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2017-11-06	2018-08-21	8.0	2018.0	288.0	1.0	0.0	0.0	0.0	
 3939	926850	467782	31.0	Female	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2017-11-06	2017-11-17	11.0	2017.0	11.0	2.0	0.0	0.0	2.0	< 6 months
 3940	926849	396639	47.0	Female	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2017-11-06	2017-11-26	11.0	2017.0	20.0	9.0	2193.0	9.0	3.0	>12 months
@@ -4721,7 +4721,7 @@
 4719	1021131	451981	43.0	Female	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2018-12-24	2019-07-13	7.0	2019.0	201.0	3.0	4900.0	1.0	1.0	>12 months
 4720	1020611	344680	53.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2018-12-24	2019-03-02	3.0	2019.0	68.0	0.0	800.0	0.0	1.0	< 6 months
 4721	1021139	214669	27.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2018-12-24	2018-12-27	12.0	2018.0	3.0	0.0	4000.0	0.0	0.0	< 6 months
-4722	1022186	268176	31.0	Male	Black or African American (HUD)	Client doesn't know (HUD)	No (HUD)	2018-12-28	2019-01-03	1.0	2019.0	6.0	2.0	0.0	0.0	1.0	>12 months
+4722	1022186	268176	31.0	Male	Black or African American (HUD)		No (HUD)	2018-12-28	2019-01-03	1.0	2019.0	6.0	2.0	0.0	0.0	1.0	>12 months
 4723	1022191	499578	20.0	Female	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2018-12-28	2019-03-06	3.0	2019.0	68.0	0.0	500.0	0.0	0.0	>12 months
 4724	1023909	285164	60.0	Male	Black or African American (HUD)	Hispanic/Latino (HUD)	No (HUD)	2018-12-28	2019-01-26	1.0	2019.0	29.0	0.0	0.0	0.0	0.0	< 6 months
 4725	1022187	1001336	35.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2018-12-31	2019-02-25	2.0	2019.0	56.0	3.0	3600.0	3.0	3.0	< 6 months
@@ -4766,7 +4766,7 @@
 4764	1027789	332565	40.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	Yes (HUD)	2019-01-19	2019-01-24	1.0	2019.0	5.0	2.0	1960.0	0.0		< 6 months
 4765	1027723	296817	39.0	Female	White (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2019-01-21	2019-04-09	4.0	2019.0	78.0	3.0	2559.0	0.0	0.0	< 6 months
 4766	1027596	488240	26.0	Male	White (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2019-01-21	2019-02-20	2.0	2019.0	30.0	0.0	3200.0	0.0	0.0	< 6 months
-4767	1027597	267503	64.0	Male	Black or African American (HUD)	Client doesn't know (HUD)	No (HUD)	2019-01-21					0.0	0.0	0.0	1.0	>12 months
+4767	1027597	267503	64.0	Male	Black or African American (HUD)		No (HUD)	2019-01-21					0.0	0.0	0.0	1.0	>12 months
 4768	1027598	501202	53.0	Female	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2019-01-21	2019-02-15	2.0	2019.0	25.0	1.0	740.0	0.0	0.0	< 6 months
 4769	1027705	470023	51.0	Male	White (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2019-01-21	2019-01-27	1.0	2019.0	6.0	2.0	0.0	0.0	0.0	>12 months
 4770	1027972	501347	50.0	Female	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2019-01-22	2019-07-29	7.0	2019.0	188.0	2.0	771.0	0.0	1.0	< 6 months
@@ -4933,7 +4933,7 @@
 4931	1055929	405886	65.0	Female	White (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2019-04-30					2.0	1575.0	2.0	2.0	>12 months
 4932	1059078	123882	70.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	Yes (HUD)	2019-05-02	2019-05-31	5.0	2019.0	29.0	15.0	10160.0	5.0	0.0	>12 months
 4933	1063999	162560	64.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2019-05-03	2019-09-07	9.0	2019.0	127.0	1.0	507.0	2.0	1.0	>12 months
-4934	1057783	315493	25.0	Male	Black or African American (HUD)	Data not collected (HUD)	No (HUD)	2019-05-04	2019-05-10	5.0	2019.0	6.0	0.0	0.0	0.0	0.0	>12 months
+4934	1057783	315493	25.0	Male	Black or African American (HUD)		No (HUD)	2019-05-04	2019-05-10	5.0	2019.0	6.0	0.0	0.0	0.0	0.0	>12 months
 4935	1057003	509654	52.0	Female	White (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2019-05-04	2019-06-11	6.0	2019.0	38.0	0.0	3080.0	0.0	5.0	< 6 months
 4936	1057345	509783	47.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2019-05-06	2019-05-13	5.0	2019.0	7.0	0.0	3200.0	0.0	0.0	< 6 months
 4937	1059069	481110	42.0	Male	American Indian or Alaska Native (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2019-05-06					0.0	2000.0	0.0	0.0	< 6 months
@@ -5246,7 +5246,7 @@
 5244	1072793	367206	61.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2019-10-05	2019-10-09	10.0	2019.0	4.0	0.0	3954.0	0.0	0.0	< 6 months
 5245	1072934	419391	46.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2019-10-07	2019-10-12	10.0	2019.0	5.0	0.0	18100.0	6.0	0.0	< 6 months
 5246	1072858	1002617	31.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2019-10-07					2.0	0.0	0.0	0.0	< 6 months
-5247	1072893	1003658	27.0	Male	White (HUD)	Client doesn't know (HUD)	No (HUD)	2019-10-07					0.0	0.0	0.0	0.0	>12 months
+5247	1072893	1003658	27.0	Male	White (HUD)		No (HUD)	2019-10-07					0.0	0.0	0.0	0.0	>12 months
 5248	1072939	1003707	34.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2019-10-07	2019-10-21	10.0	2019.0	14.0	0.0	0.0	0.0	0.0	< 6 months
 5249	1073006	384548	53.0	Male	Black or African American (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2019-10-08	2019-10-15	10.0	2019.0	7.0	4.0	771.0	1.0	1.0	< 6 months
 5250	1073016	274182	45.0	Male	American Indian or Alaska Native (HUD)	Non-Hispanic/Non-Latino (HUD)	No (HUD)	2019-10-08					0.0	0.0	0.0	0.0	>12 months

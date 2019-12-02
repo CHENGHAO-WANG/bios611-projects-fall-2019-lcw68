@@ -1,34 +1,32 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[ ]:
+# In[1]:
 
 
 import pandas as pd
 import numpy as np
 import datetime as datetime
-import time
-import calendar
 import os
 import matplotlib.pyplot as plt
 
 
-# In[ ]:
+# In[3]:
 
 
 # Read the dataset
-client = pd.read_csv('https://github.com/datasci611/bios611-projects-fall-2019-lcw68/tree/master/project_3/data/CLIENT_191102.tsv',sep='\t',header = 0)
-disa_entry = pd.read_csv('https://github.com/datasci611/bios611-projects-fall-2019-lcw68/tree/master/project_3/data/DISABILITY_ENTRY_191102.tsv',sep='\t',header = 0)
-disa_exit = pd.read_csv('https://github.com/datasci611/bios611-projects-fall-2019-lcw68/tree/master/project_3/data/DISABILITY_EXIT_191102.tsv',sep='\t',header = 0)
-entry_exit = pd.read_csv('https://github.com/datasci611/bios611-projects-fall-2019-lcw68/tree/master/project_3/data/ENTRY_EXIT_191102.tsv',sep='\t',header = 0)
-ee_udes = pd.read_csv('https://github.com/datasci611/bios611-projects-fall-2019-lcw68/tree/master/project_3/data/EE_UDES_191102.tsv',sep ='\t',header = 0)
-income_entry = pd.read_csv('https://github.com/datasci611/bios611-projects-fall-2019-lcw68/tree/master/project_3/data/INCOME_ENTRY_191102.tsv',sep ='\t',header = 0)
-income_exit = pd.read_csv('https://github.com/datasci611/bios611-projects-fall-2019-lcw68/tree/master/project_3/data/INCOME_EXIT_191102.tsv',sep='\t',header = 0)
-health_entry = pd.read_csv('https://github.com/datasci611/bios611-projects-fall-2019-lcw68/tree/master/project_3/data/HEALTH_INS_ENTRY_191102.tsv',sep ='\t',header = 0)
-health_exit = pd.read_csv('https://github.com/datasci611/bios611-projects-fall-2019-lcw68/tree/master/project_3/data/HEALTH_INS_EXIT_191102.tsv',sep ='\t',header = 0)
+client = pd.read_csv('../data/CLIENT_191102.tsv',sep='\t',header = 0)
+disa_entry = pd.read_csv('../data/DISABILITY_ENTRY_191102.tsv',sep='\t',header = 0)
+disa_exit = pd.read_csv('../data/DISABILITY_EXIT_191102.tsv',sep='\t',header = 0)
+entry_exit = pd.read_csv('../data/ENTRY_EXIT_191102.tsv',sep='\t',header = 0)
+ee_udes = pd.read_csv('../data/EE_UDES_191102.tsv',sep ='\t',header = 0)
+income_entry = pd.read_csv('../data/INCOME_ENTRY_191102.tsv',sep ='\t',header = 0)
+income_exit = pd.read_csv('../data/INCOME_EXIT_191102.tsv',sep='\t',header = 0)
+health_entry = pd.read_csv('../data/HEALTH_INS_ENTRY_191102.tsv',sep ='\t',header = 0)
+health_exit = pd.read_csv('../data/HEALTH_INS_EXIT_191102.tsv',sep ='\t',header = 0)
 
 
-# In[56]:
+# In[5]:
 
 
 ### At first we want to explore the correlation of staying time and some characteristics at entry, so we will create two datasets, one is for
@@ -37,8 +35,8 @@ health_exit = pd.read_csv('https://github.com/datasci611/bios611-projects-fall-2
 #Since we found that client ID and client Unique ID has the same value for 
 
 #Transform the Datetime
-entry_exit["Entry Date"] = pd.to_datetime(entry_exit["Entry Date"],format = '%m/%d/%Y')
-entry_exit["Exit Date"] = pd.to_datetime(entry_exit["Exit Date"],format = '%m/%d/%Y')
+entry_exit["Entry Date"] = entry_exit["Entry Date"].apply(pd.to_datetime)
+entry_exit["Exit Date"] = entry_exit["Exit Date"].apply(pd.to_datetime)
 #Create the month and Time difference variable
 entry_exit["Entry Month"] = entry_exit["Entry Date"].dt.month
 entry_exit["Entry Year"] = entry_exit["Entry Date"].dt.year
@@ -56,7 +54,7 @@ plt.savefig("../result/Entry_month.png")
 plt.show()
 
 
-# In[55]:
+# In[6]:
 
 
 #See the visiting frequency of year
@@ -65,7 +63,7 @@ plt.savefig("../result/Entry_year.png")
 plt.show()
 
 
-# In[57]:
+# In[19]:
 
 
 exitdata.groupby("Exit Year").count()["Client ID"].plot(kind = "bar",x = "Exit Year")
@@ -96,13 +94,11 @@ entry_exit["Reason for Leaving"].value_counts().apply(lambda x:x/2459)
 # Only 21% people completed the program
 
 
-# In[14]:
+# In[10]:
 
 
 #Deal with the Disability Data: 
 # We regard the Yes in "Disability Determination" as the variables we want to calculate
-disa_entry["Disability Start Date (Entry)"] = pd.to_datetime(disa_entry["Disability Start Date (Entry)"],format = '%m/%d/%Y')
-disa_exit["Disability Start Date (Exit)"] = pd.to_datetime(disa_exit["Disability Start Date (Exit)"],format = '%m/%d/%Y')
 disen = disa_entry[['EE UID','Client ID']]
 disex = disa_exit[['EE UID','Client ID']]
 tp = pd.DataFrame(disa_entry.groupby("Client ID")["Disability Determination (Entry)"].apply(lambda x:(x=="Yes (HUD)").sum())).rename(columns = {"Disability Determination (Entry)":"Disability count"})
@@ -114,14 +110,14 @@ disex = pd.merge(disex,tq,on="Client ID",how = "left")
 disa_entry[['Client ID','Disability Type (Entry)']].drop_duplicates().groupby("Client ID").count().sort_values(by = "Disability Type (Entry)",ascending= False)
 
 
-# In[15]:
+# In[11]:
 
 
 disa_entry["Disability Type (Entry)"].value_counts()
 #The main disability type shows as below
 
 
-# In[36]:
+# In[12]:
 
 
 # Deal with demographic data
@@ -132,7 +128,7 @@ client_data["Client Ethnicity"].replace(["Data not collected (HUD)","Client does
 client.sort_values(by = "Client Age at Entry",ascending = True).reset_index(drop=True).head()
 
 
-# In[17]:
+# In[13]:
 
 
 #Merge the three dataset, client demographic, entry data and disability at entry
@@ -142,7 +138,7 @@ client_ee.groupby(["Client Gender","Client Primary Race"])["EE UID","Client ID"]
 # Check the distribution for gender and races
 
 
-# In[18]:
+# In[14]:
 
 
 client_ee = pd.merge(client_ee,disen,on=["EE UID","Client ID"], how = "left").drop_duplicates()
@@ -150,7 +146,7 @@ client_ee_exit = pd.merge(client_ee_exit,disex,on=["EE UID","Client ID"], how = 
 client_ee.head()
 
 
-# In[19]:
+# In[15]:
 
 
 #Add the information about monthly income amount
@@ -167,7 +163,7 @@ client_ee_exit = pd.merge(client_ee_exit,ie1,on="Client ID",how = "left")
 pd.DataFrame({'Entry':s1,'Exit':s2})
 
 
-# In[20]:
+# In[16]:
 
 
 #Add the information about health insurance coverage at entry
@@ -178,7 +174,7 @@ h2 = pd.DataFrame(h2)
 h2
 
 
-# In[21]:
+# In[17]:
 
 
 # calculate the sum of "Yes", which means the sum of health insurance the client has
@@ -190,20 +186,20 @@ client_total_exit["race"].replace(["Client doesn't know (HUD)","Client refused (
 client_total.head()
 
 
-# In[1]:
+# In[18]:
 
 
 client_total.groupby("race").count()
-noncash_entry=pd.read_csv('https://github.com/datasci611/bios611-projects-fall-2019-lcw68/tree/master/project_3/data/NONCASH_ENTRY_191102.tsv',sep="\t",header = 0)
+noncash_entry=pd.read_csv('../data/NONCASH_ENTRY_191102.tsv',sep="\t",header = 0)
 nc_entry = pd.DataFrame(noncash_entry[["Client ID","Receiving Benefit (Entry)"]].groupby("Client ID")["Receiving Benefit (Entry)"].apply(lambda x:(x == 'Yes').sum()))
 client_total_entry = pd.merge(client_total,nc_entry,on="Client ID",how = "left")
 
-noncash_exit=pd.read_csv('https://github.com/datasci611/bios611-projects-fall-2019-lcw68/tree/master/project_3/data/NONCASH_EXIT_191102.tsv',sep="\t",header = 0)
+noncash_exit=pd.read_csv('../data/NONCASH_EXIT_191102.tsv',sep="\t",header = 0)
 nc_exit = pd.DataFrame(noncash_exit[["Client ID","Receiving Benefit (Exit)"]].groupby("Client ID")["Receiving Benefit (Exit)"].apply(lambda x:(x == 'Yes').sum()))
 client_total_exit = client_total_exit.merge(nc_exit,on="Client ID",how = "left")
 
 
-# In[23]:
+# In[19]:
 
 
 #For living situation data, we are intersted in 
@@ -220,7 +216,7 @@ client_total_entry = client_total_entry.merge(client_living[["EE UID","homelesst
 client_total_exit = client_total_exit.merge(client_living[["EE UID","homelesstime"]],on = "EE UID", how = "left")
 
 
-# In[48]:
+# In[20]:
 
 
 client_total_entry["Client Ethnicity"].replace(["Data not collected (HUD)","Client doesn't know (HUD)","Client refused (HUD)"],np.nan,inplace = True)
@@ -230,7 +226,7 @@ client_total_exit.to_csv("../data/client_total_exit.tsv",sep="\t")
 #Output the file we need 
 
 
-# In[50]:
+# In[21]:
 
 
 client_demographic = client_total_entry.drop(columns=["EE UID","Entry_age","Entry Date","Exit Date","Entry Month","Entry Year","Time Difference"]).drop_duplicates()
@@ -242,7 +238,7 @@ client_demographic.describe(include='all')
 # Generate a summary
 
 
-# In[26]:
+# In[22]:
 
 
 print(ee_udes["Prior Living Situation(43)"].value_counts())
