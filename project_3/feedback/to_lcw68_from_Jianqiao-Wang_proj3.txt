@@ -1,0 +1,47 @@
+1. Is the project organized modularly, with Make as the workflow manager?
+
+This project is organized clearly. However, you need to write some bash commands in your makefile to make your scripts work on VCL.
+
+2. Does the project use both Python (Pandas specifically) and R (Tidyverse specifically) scripts?
+
+The project use both pandas and tidyverse correctly. Here are some suggestions: 
+(1) For python, you could add `%matplotlib inline` at the beginning of your notebook to make sure pandas can plot figures in the first run. 
+(2) There is an error at the end of your notebook. Just remove that cell if it is not useful.
+
+3. Is Docker used to define execution environments appropriately?
+
+You haven't update a dockerfile on your github. Since docker is used to define environments on VCL, 'FROM' command maybe enough for this project. You can simply add anaconda on your VCL by Docker.
+
+4. Are the plots appropriate for the data types, the hypotheses being tested, and the points being communicated?
+
+Purpose of analysis is communicated well in readme and final html file. You could add some comments under your plots to help readers easily understand them.
+
+5. How can the project be organized or documented more clearly?
+
+The project is well-organized. You could add a conclusion part at the end of your report.
+
+6. Is the purpose of the project communicated clearly?
+
+Yes. 
+
+7. Does the purpose of the project make sense from the client’s point of view? How could the project better serve the client?
+
+Yes. Adding conclusions at the end of the report will help clients more.
+
+8. Is the source of the data made clear? (Remember that this project can be part of your public portfolios, so people not familiar with UMD may see it).
+
+Yes. You have a very detailed introduction to UMD and description of data.
+
+9. Is the interpretation of figures clearly explained?
+
+Actually, to complete your project, it's very necessary to add interpretation of your figures in your report.
+
+10. Is the purpose and interpretation of analysis steps clearly communicated?
+
+Yes. 
+
+11. Are overall take-home messages clearly communicated?
+
+Yes.
+
+Overall, great job!
