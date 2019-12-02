@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[52]:
+# In[ ]:
 
 
 import pandas as pd
@@ -13,19 +13,19 @@ import os
 import matplotlib.pyplot as plt
 
 
-# In[3]:
+# In[ ]:
 
 
 # Read the dataset
 client = pd.read_csv('https://github.com/datasci611/bios611-projects-fall-2019-lcw68/tree/master/project_3/data/CLIENT_191102.tsv',sep='\t',header = 0)
 disa_entry = pd.read_csv('https://github.com/datasci611/bios611-projects-fall-2019-lcw68/tree/master/project_3/data/DISABILITY_ENTRY_191102.tsv',sep='\t',header = 0)
 disa_exit = pd.read_csv('https://github.com/datasci611/bios611-projects-fall-2019-lcw68/tree/master/project_3/data/DISABILITY_EXIT_191102.tsv',sep='\t',header = 0)
-entry_exit = pd.read_csv('https://github.com/datasci611/bios611-projects-fall-2019-lcw68/tree/master/project_3/data/ENTRY_EXIT_191102.tsv",sep='\t',header = 0)
-ee_udes = pd.read_csv('https://github.com/datasci611/bios611-projects-fall-2019-lcw68/tree/master/project_3/data/EE_UDES_191102.tsv",sep ='\t',header = 0)
-income_entry = pd.read_csv('https://github.com/datasci611/bios611-projects-fall-2019-lcw68/tree/master/project_3/data/INCOME_ENTRY_191102.tsv",sep ='\t',header = 0)
-income_exit = pd.read_csv('https://github.com/datasci611/bios611-projects-fall-2019-lcw68/tree/master/project_3/data/INCOME_EXIT_191102.tsv",sep='\t',header = 0)
-health_entry = pd.read_csv('https://github.com/datasci611/bios611-projects-fall-2019-lcw68/tree/master/project_3/data/HEALTH_INS_ENTRY_191102.tsv",sep ='\t',header = 0)
-health_exit = pd.read_csv('https://github.com/datasci611/bios611-projects-fall-2019-lcw68/tree/master/project_3/data/HEALTH_INS_EXIT_191102.tsv",sep ='\t',header = 0)
+entry_exit = pd.read_csv('https://github.com/datasci611/bios611-projects-fall-2019-lcw68/tree/master/project_3/data/ENTRY_EXIT_191102.tsv',sep='\t',header = 0)
+ee_udes = pd.read_csv('https://github.com/datasci611/bios611-projects-fall-2019-lcw68/tree/master/project_3/data/EE_UDES_191102.tsv',sep ='\t',header = 0)
+income_entry = pd.read_csv('https://github.com/datasci611/bios611-projects-fall-2019-lcw68/tree/master/project_3/data/INCOME_ENTRY_191102.tsv',sep ='\t',header = 0)
+income_exit = pd.read_csv('https://github.com/datasci611/bios611-projects-fall-2019-lcw68/tree/master/project_3/data/INCOME_EXIT_191102.tsv',sep='\t',header = 0)
+health_entry = pd.read_csv('https://github.com/datasci611/bios611-projects-fall-2019-lcw68/tree/master/project_3/data/HEALTH_INS_ENTRY_191102.tsv',sep ='\t',header = 0)
+health_exit = pd.read_csv('https://github.com/datasci611/bios611-projects-fall-2019-lcw68/tree/master/project_3/data/HEALTH_INS_EXIT_191102.tsv',sep ='\t',header = 0)
 
 
 # In[56]:
@@ -190,15 +190,15 @@ client_total_exit["race"].replace(["Client doesn't know (HUD)","Client refused (
 client_total.head()
 
 
-# In[22]:
+# In[1]:
 
 
 client_total.groupby("race").count()
-noncash_entry=pd.read_csv('https://github.com/datasci611/bios611-projects-fall-2019-lcw68/tree/master/project_3/data/NONCASH_ENTRY_191102.tsv",sep="\t",header = 0)
+noncash_entry=pd.read_csv('https://github.com/datasci611/bios611-projects-fall-2019-lcw68/tree/master/project_3/data/NONCASH_ENTRY_191102.tsv',sep="\t",header = 0)
 nc_entry = pd.DataFrame(noncash_entry[["Client ID","Receiving Benefit (Entry)"]].groupby("Client ID")["Receiving Benefit (Entry)"].apply(lambda x:(x == 'Yes').sum()))
 client_total_entry = pd.merge(client_total,nc_entry,on="Client ID",how = "left")
 
-noncash_exit=pd.read_csv('https://github.com/datasci611/bios611-projects-fall-2019-lcw68/tree/master/project_3/data/NONCASH_EXIT_191102.tsv",sep="\t",header = 0)
+noncash_exit=pd.read_csv('https://github.com/datasci611/bios611-projects-fall-2019-lcw68/tree/master/project_3/data/NONCASH_EXIT_191102.tsv',sep="\t",header = 0)
 nc_exit = pd.DataFrame(noncash_exit[["Client ID","Receiving Benefit (Exit)"]].groupby("Client ID")["Receiving Benefit (Exit)"].apply(lambda x:(x == 'Yes').sum()))
 client_total_exit = client_total_exit.merge(nc_exit,on="Client ID",how = "left")
 
@@ -239,6 +239,7 @@ client_demographic.to_csv("../data/client_demographic.tsv",sep="\t")
 
 client_demographic[["race","Client Gender","Client Ethnicity","Client Veteran Status"]].describe()
 client_demographic.describe(include='all')
+# Generate a summary
 
 
 # In[26]:
@@ -247,12 +248,4 @@ client_demographic.describe(include='all')
 print(ee_udes["Prior Living Situation(43)"].value_counts())
 ee_udes["Length of Stay in Previous Place(1934)"].value_counts()
 # See what kind of values of living situation 
-
-
-# In[33]:
-
-
-client_living.replace(["Client doesn't know (HUD)","Client refused (HUD)","Category 3 - Homeless only under other federal statutes (HUD)"],np.nan,inplace= True)
-client_living.dropna(axis =1,inplace = True)
-client_living['HI status'].value_counts()
 
