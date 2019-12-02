@@ -24,7 +24,6 @@ We will show the wrangling process in python and make some plots in R. The varia
 
 We want to use some kind of variables to construct the correlation with staying time at the shelter. Also, we will see if there's some variables highly correlated, and consider the comparison between entry and exit to see if clients got enough help in shelters. Based on these two analysis, we will also conduct some other interesting analysis work.
 
-We will explain our variables: "disability count" means the total disability one client had, , and "healins" means the health insurance one received at entry.
 
 ## Exploration: Different variables vs the length of staying time
 
@@ -32,7 +31,7 @@ In the first part we will draw lot of plots to explore the variables listed in o
 
 ### The distribution plot for the staying duration and visiting times
 
-First I would like to explain the variables here: "Disability count" means that the total amount of disability the client has; "healins" has the similar meaning as for health insurance. And the "income_month" add all the income source of the client. "Receiving Benefit" means the amount of cash support they received at first.
+First I would like to explain the variables here: "Disability count" means that the total amount of disability the client has; "healins" has the similar meaning as for health insurance. And the "income_month" add all the income source of the client. "Receiving Benefit" means the amount of noncash support they received at first.
 
 ```{r Time}
 p1 = client.entry %>%drop_na(`Time Difference`)%>%group_by(`Client ID`)%>%
@@ -85,7 +84,7 @@ client.entry.new%>%drop_na(`Disability count`)%>%
 For different variables, the duration distribution does not seem to differ a lot, but still I found that for gender, the amount of men is more than women when the duration is short; the amount of people who are homeless for more than one year will be more possible to stay at shelter shortly.
 
 
-## Distribution of the different potential independent variables: Monthly income
+### Distribution of the different potential independent variables: Monthly income
 
 We will explore the other important variables' distribution and correlation among them. We take monthly income as our goal.
 
@@ -184,9 +183,17 @@ summary(mod2)
 
 ```
 
-From the plot we could see there's a linear correlation between residuals and fitted values, so the residuals still contain the information for fitted values; We found that "Entry Age",gender,veteran status, ethnicity, disability count and homeless time have the significant p-value, and the signal of estimate coefficients uncover the effect on the change of Duration. It passes F test but the $R^{2}$ statistics is very small.
+From the plot we could see there's a linear correlation between residuals and fitted values, so the residuals still contain the information for fitted values; We found that "Entry Age",gender,veteran status, ethnicity, disability count and homeless time have the significant p-value, and the signal of estimate coefficients uncover the effect on the change of Duration. It passes F test but the $R^{2}$ statistics is very small. We might consider transform our response variable, such as using $\log(y)$;
 
-We found that compared with non-veteran, those who are veteran usually stay less time at shelter; those who are older are more possible to stay longer; those who are homeless more than one year will be less possible to stay longer than those whose homeless time is less than 6 months. 
+```{r regression}
+dt = dt%>%filter(`Time Difference`>0)
+mod3 =lm(log(`Time Difference`)~ Entry_age+`Client Gender`+race+`Client Veteran Status`+`Client Ethnicity`+income_month+healins+`Disability count`+`Receiving Benefit (Entry)`+homelesstime,data =dt)
+
+summary(mod3)
+plot(mod3)
+```
+
+We found that compared with non-veteran, those who are veteran usually stay less time at shelter; those who are older are more possible to stay longer; those who are homeless more than one year will be less possible to stay longer than those whose homeless time is less than 6 months. We found income also significant, but the absolute value of coefficient is not large.
 
 
 ## Problem 3: Check if there's a trend regarding months
