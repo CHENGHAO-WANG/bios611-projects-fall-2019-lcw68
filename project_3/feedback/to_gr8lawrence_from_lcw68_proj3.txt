@@ -1,3 +1,8 @@
 score: 15
 
+Points	Description
+7/7	Feedback was specific ¨C you know exactly what to improve, and what you did well
+6/6	Feedback was ¡°meta¡± ¨C the feedback went beyond finding typos to helping you with higher-level improvements
+2/2	Feedback was respectful and optimistic ¨C you feel helped and encouraged after reading the feedback
+
 You give a very helpful feedback, and the problem is very valuable. 
